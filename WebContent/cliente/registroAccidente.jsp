@@ -18,7 +18,7 @@
 
 	<h1>Registro Accidente</h1>
 	
-	<form action="RegistroAccidente" method="POST">
+	<form action="../svlRegAccidente" method="POST">
 	<table>
 		<tr>
 			<td><input type="text" name="asunto" placeholder="Tipo Accidente"></td>

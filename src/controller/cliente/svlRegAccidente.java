@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class RegistroAccidente
+ * Servlet implementation class svlRegAccidente
  */
-@WebServlet("/RegistroAccidente")
-public class RegistroAccidente extends HttpServlet {
+@WebServlet("/svlRegAccidente")
+public class svlRegAccidente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistroAccidente() {
+    public svlRegAccidente() {
         super();
         // TODO Auto-generated constructor stub
     }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

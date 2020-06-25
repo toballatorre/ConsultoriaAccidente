@@ -6,7 +6,7 @@
 
 		<c:otherwise>
 			<h2>Bienvenido ${sessionScope.user}</h2>
-			<form action="LogOut" method="get">
+			<form action="${pageContext.request.contextPath}/LogOut" method="get">
 				<input type="submit" value="Logout">
 			</form>
 

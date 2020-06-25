@@ -2,12 +2,16 @@ package controller.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.usuarios.Usuario;
 
 
 /**
@@ -29,21 +33,52 @@ public class ValidarLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Usuario usuarios = new Usuario();
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
 		
-		if(pass.equals("123")) {
+		System.out.println(Arrays.toString(usuarios.getArr()));
+		System.out.println(user);
+		System.out.println(pass);
+		System.out.println(usuarios.validar(user));
+		System.out.println(usuarios.validar("cliente"));
+		
+		if (usuarios.validar(user)) {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("user", user);
-			response.sendRedirect("AreaCliente.jsp");			
-		}else {
+			System.out.println(user);
+			
+			if (user.equals("cliente")) {
+				sesion.setAttribute("tipoUsuario", "cliente");
+				response.sendRedirect("AreaCliente.jsp");	
+			} else if (user.equals("admin")){
+				sesion.setAttribute("tipoUsuario", "admin");
+				response.sendRedirect("AreaAdmin.jsp");
+			} else {
+				sesion.setAttribute("tipoUsuario", "profesional");
+				response.sendRedirect("AreaProfesional.jsp");
+			}
+			
+		} else {
 			PrintWriter salida = response.getWriter();
 			salida.println("<script type=\"text/javascript\">");
-			salida.println("alert('User or password incorrect');");
+			salida.println("alert('User no encontrado');");
 			salida.println("location='index.jsp';");
 			salida.println("</script>");
 		}
+		
+		
+//		if(pass.equals("123")) {
+//			HttpSession sesion = request.getSession();
+//			sesion.setAttribute("user", user);
+//			response.sendRedirect("AreaCliente.jsp");			
+//		}else {
+//			PrintWriter salida = response.getWriter();
+//			salida.println("<script type=\"text/javascript\">");
+//			salida.println("alert('User or password incorrect');");
+//			salida.println("location='index.jsp';");
+//			salida.println("</script>");
+//		}
 		
 	}
 

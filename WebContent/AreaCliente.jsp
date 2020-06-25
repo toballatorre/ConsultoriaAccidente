@@ -11,7 +11,7 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<h1>Vista Cliente</h1>
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="ClienteMenu.jsp" />
 	<jsp:include page="ValidaUsuario.jsp" />
 	
 	<jsp:include page="footer.jsp" />

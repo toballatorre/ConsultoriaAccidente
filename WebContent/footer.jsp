@@ -1,1 +1,1 @@
-<p>Consultores de prevencion de Riesgos - 2020
+<footer><p>Consultores de prevencion de Riesgos - 2020</p></footer>

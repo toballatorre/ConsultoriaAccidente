@@ -5,7 +5,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<h2>Bienvenido ${sessionScope.user}</h2>
+			<p>Bienvenido ${sessionScope.user}</p>
 			<form action="${pageContext.request.contextPath}/LogOut" method="get">
 				<input type="submit" value="Logout">
 			</form>

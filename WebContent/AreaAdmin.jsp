@@ -11,11 +11,9 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<h1>Vista Administrador</h1>
-	<%-- <jsp:include page="menu.jsp" /> --%>
-	<jsp:include page="ValidaUsuario.jsp" />
+	<jsp:include page="MenuAdmin.jsp" />
+
 	
 	<jsp:include page="footer.jsp" />
-
-
 </body>
 </html>

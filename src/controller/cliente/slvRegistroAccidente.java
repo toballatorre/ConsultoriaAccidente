@@ -25,6 +25,16 @@ public class slvRegistroAccidente extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    public void init() {
+        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
+        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
+        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
+        String jdbcDriver = getServletContext().getInitParameter("jdbcDriver");
+        System.out.println(jdbcDriver);
+        System.out.println(jdbcURL);
+        System.out.println(jdbcUsername);
+        System.out.println(jdbcPassword);
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

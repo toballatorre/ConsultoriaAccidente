@@ -22,7 +22,7 @@ public class UsuarioDao implements IUsuarioDao {
 		Statement stm = null;
 		Connection con = null;
 		
-		String sql = "INSERT INTO usuarios VALUES (null,'" + user.getNombre() + "','"+ user.getApellido()+"','"+user.getCorreo()+"','"+user.getTelefono()+"')";
+		String sql = "INSERT INTO usuario VALUES (null,'" + user.getNombre() + "','"+ user.getApellido()+"','"+user.getCorreo()+"','"+user.getTelefono()+"')";
 		
 		try {
 			con = ConexionSingleton.getConnection();
@@ -48,7 +48,7 @@ public class UsuarioDao implements IUsuarioDao {
 		Statement stm = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from usuarios ORDER BY ID";
+		String sql = "select * from usuario ORDER BY ID";
 		
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 		
@@ -85,7 +85,7 @@ public class UsuarioDao implements IUsuarioDao {
 		
 		boolean actualizar = false;
 		
-		String sql = "UPDATE usuarios SET nombre = '" + user.getNombre() + "', apellido = '" + user.getApellido() + "', correo = '" + user.getCorreo() + "', telefono = '"+user.getTelefono()+"' WHERE id = '" + user.getId() + "'";
+		String sql = "UPDATE usuario SET nombre = '" + user.getNombre() + "', apellido = '" + user.getApellido() + "', correo = '" + user.getCorreo() + "', telefono = '"+user.getTelefono()+"' WHERE id = '" + user.getId() + "'";
 		
 		try {
 			con = ConexionSingleton.getConnection();
@@ -111,7 +111,7 @@ public class UsuarioDao implements IUsuarioDao {
 		
 		boolean eliminar = false;
 		
-		String sql = "DELETE FROM usuarios WHERE id = " + user.getId();
+		String sql = "DELETE FROM usuario WHERE id = " + user.getId();
 		
 		try {
 			con = ConexionSingleton.getConnection();
@@ -134,7 +134,7 @@ public class UsuarioDao implements IUsuarioDao {
 		Statement stm = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from usuarios where ID = " + idusuario;
+		String sql = "select * from usuario where ID = " + idusuario;
 		
 		Usuario u = new Usuario();
 		try {

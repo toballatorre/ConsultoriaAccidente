@@ -6,22 +6,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ejercicio G5</title>
+<title>Registro Accidente</title>
 <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<h1>Vista Cliente</h1>
-
-
 	<jsp:include page="../MenuCliente.jsp" />
 
 	<h1>Registro Accidente</h1>
 
-	<form action="../svlRegAccidente" method="POST">
+	<form action="slvRegistroAccidente" method="POST">
 		<table>
 			<tr>
-				<td><input type="text" name="asunto"
+				<td><input type="text" name="tipoAccidente"
 					placeholder="Tipo Accidente"></td>
 			</tr>
 			<tr>
@@ -34,24 +32,25 @@
 				<fmt:formatDate value="${Ahora}" type="time" timeStyle="short"
 					var="tiempoAhora" />
 
-				<td><input type="date" name="fechaAccidente"
-					placeholder="${fechaAhora}" required></td>
-				<td><input type="time" name="horaAccidente"
-					placeholder="${tiempoAhora}" required></td>
+				<td><input type="number" name="diasPerdidos" placeholder="Días perdidos..." required></td>
+			</tr>
+			<tr>
+				<td><input type="date" name="fechaAccidente" placeholder="${fechaAhora}" required></td>
 			</tr>
 			<tr>
 				<td><input type="text" name="lugarAccidente"
 					placeholder="Lugar del Accidente" required></td>
 			</tr>
 			<tr>
-				<td><textarea name="detalleAccidente" rows="10" cols="20"
-						placeholder="Detalle del accidente..."></textarea></td>
+				<td><textarea name="descripcion" rows="10" cols="20"
+						placeholder="Descripción del accidente..."></textarea></td>
 			</tr>
-			<tr>
-				<!-- Utilizamos la fecha y hora formateada para que se guarde el momento del registro -->
+			<!-- 
+				Utilizamos la fecha y hora formateada para que se guarde el momento del registro
 				<c:set var="fechaRegistro" value="${fechaAhora} - ${tiempoAhora}" />
-				<td><input type="hidden" name="fechaRegistro"
-					value="${fechaRegistro}"></td>
+				<td><input type="hidden" name="fechaRegistro" value="${fechaRegistro}"></td>
+			 -->
+			<tr>
 				<td><input type="submit" value="Registrar"></td>
 			</tr>
 		</table>

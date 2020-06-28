@@ -12,11 +12,14 @@ public class ConexionSingleton {
 	private String usuario;
 	private String password;
 	
+	/* toballatorre:
+	 * Tengo las direcciones y todo en el XML tenemos
+	 * que buscar la manera de hacer llegar los valores */
 	private ConexionSingleton() { //revisar configuracion
 		url = "jdbc:oracle:thin:@localhost:1521:xe";
 		driver = "oracle.jdbc.driver.OracleDriver";
-		usuario = "usrtest2"; //?????
-		password = "1234"; //??????
+		usuario = "tinyprro"; //tinyprro
+		password = "1234"; //1234
 		
 		try {
 			Class.forName(driver);

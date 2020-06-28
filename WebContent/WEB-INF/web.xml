@@ -10,15 +10,19 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 	<context-param>
-	  	<param-name>jdbcURL</param-name>
-	  	<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
-	  </context-param>
-	  <context-param>
-	  	<param-name>jdbcUsername</param-name>
-	  	<param-value>TINYPRRO</param-value>
-	  </context-param>
-	  <context-param>
-	  	<param-name>jdbcPassword</param-name>
-	  	<param-value>1234</param-value>
-	  </context-param>
+		<param-name>jdbcURL</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcUsername</param-name>
+		<param-value>TINYPRRO</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcPassword</param-name>
+		<param-value>1234</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcDriver</param-name>
+		<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+	</context-param>
 </web-app>

@@ -15,7 +15,7 @@
 	  </context-param>
 	  <context-param>
 	  	<param-name>jdbcUsername</param-name>
-	  	<param-value>OT</param-value>
+	  	<param-value>TINYPRRO</param-value>
 	  </context-param>
 	  <context-param>
 	  	<param-name>jdbcPassword</param-name>

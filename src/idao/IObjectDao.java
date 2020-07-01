@@ -3,12 +3,13 @@ package idao;
 import java.util.List;
 
 
-public interface IObjectDao {
+public interface IObjectDao <Obj>{
 	
-	public boolean crear(Object obj);
-	public List<Object> leer();
-	public boolean actualizar(Object obj);
-	public boolean eliminar(Object obj);
-	public Object obtener(int idObj);
+	public boolean create(Obj o);
+	public boolean delete(Object key);
+	public boolean update(Obj o);
+	
+	public Obj read(Object key);
+	public List<Obj> readAll();
 	
 }

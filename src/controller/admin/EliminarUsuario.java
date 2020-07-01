@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UsuarioDao;
+import dao.UsuarioDAO;
 import modelo.Usuario;
 
 /**
@@ -39,7 +39,7 @@ public class EliminarUsuario extends HttpServlet {
 		Usuario user = new Usuario();
 		user.setId(usuarioid);
 		
-		UsuarioDao userdao = new UsuarioDao();
+		UsuarioDAO userdao = new UsuarioDAO();
 		boolean elimino = userdao.eliminarUsuario(user);
 
 		List<Usuario> listadoeliminar = new ArrayList<Usuario>();

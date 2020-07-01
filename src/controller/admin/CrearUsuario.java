@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UsuarioDao;
+import dao.UsuarioDAO;
 import modelo.Usuario;
 
 /**
@@ -48,7 +48,7 @@ public class CrearUsuario extends HttpServlet {
 
 		Usuario user = new Usuario(nombre,apellido,correo,telefono);
 		
-		UsuarioDao userdao = new UsuarioDao();
+		UsuarioDAO userdao = new UsuarioDAO();
 		boolean agregar = userdao.crearUsuario(user);
 		
 		String mensaje = "";

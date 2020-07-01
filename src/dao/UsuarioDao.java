@@ -1,6 +1,5 @@
 package dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,9 +8,9 @@ import java.util.List;
 
 import idao.IUsuarioDao;
 import modelo.Usuario;
-import conectar.ConexionSingleton;
+import conectar.Conexion;
 
-public class UsuarioDao implements IUsuarioDao {
+public class UsuarioDAO implements IUsuarioDao {
 
 	@Override
 	public boolean crearUsuario(Usuario user) {
@@ -20,13 +19,13 @@ public class UsuarioDao implements IUsuarioDao {
 		boolean registrar = false;
 		
 		Statement stm = null;
-		Connection con = null;
+		Conexion con = null;
 		
 		String sql = "INSERT INTO usuario VALUES (null,'" + user.getNombre() + "','"+ user.getApellido()+"','"+user.getCorreo()+"','"+user.getTelefono()+"')";
 		
 		try {
-			con = ConexionSingleton.getConnection();
-			stm = con.createStatement();
+			con = Conexion.connect();
+			stm = con.getConection().createStatement();
 			stm.execute(sql);
 			registrar = true;
 			stm.close();
@@ -44,7 +43,7 @@ public class UsuarioDao implements IUsuarioDao {
 	public List<Usuario> leerUsuarios() {
 		// TODO Auto-generated method stub
 
-		Connection con = null;
+		Conexion con = null;
 		Statement stm = null;
 		ResultSet rs = null;
 		
@@ -53,8 +52,8 @@ public class UsuarioDao implements IUsuarioDao {
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 		
 		try {
-			con = ConexionSingleton.getConnection();
-			stm = con.createStatement();
+			con = Conexion.connect();
+			stm = con.getConection().createStatement();
 			rs = stm.executeQuery(sql);
 			while (rs.next()) {
 				Usuario c = new Usuario();
@@ -80,7 +79,7 @@ public class UsuarioDao implements IUsuarioDao {
 	public boolean actualizarUsuario(Usuario user) {
 		// TODO Auto-generated method stub
 
-		Connection con = null;
+		Conexion con = null;
 		Statement stm = null;
 		
 		boolean actualizar = false;
@@ -88,8 +87,8 @@ public class UsuarioDao implements IUsuarioDao {
 		String sql = "UPDATE usuario SET nombre = '" + user.getNombre() + "', apellido = '" + user.getApellido() + "', correo = '" + user.getCorreo() + "', telefono = '"+user.getTelefono()+"' WHERE id = '" + user.getId() + "'";
 		
 		try {
-			con = ConexionSingleton.getConnection();
-			stm = con.createStatement();
+			con = Conexion.connect();
+			stm = con.getConection().createStatement();
 			stm.execute(sql);
 			actualizar = true;
 			stm.close();
@@ -106,7 +105,7 @@ public class UsuarioDao implements IUsuarioDao {
 	@Override
 	public boolean eliminarUsuario(Usuario user) {
 		// TODO Auto-generated method stub
-		Connection con = null;
+		Conexion con = null;
 		Statement stm = null;
 		
 		boolean eliminar = false;
@@ -114,8 +113,8 @@ public class UsuarioDao implements IUsuarioDao {
 		String sql = "DELETE FROM usuario WHERE id = " + user.getId();
 		
 		try {
-			con = ConexionSingleton.getConnection();
-			stm = con.createStatement();
+			con = Conexion.connect();
+			stm = con.getConection().createStatement();
 			stm.execute(sql);
 			eliminar = true;
 			stm.close();
@@ -130,7 +129,7 @@ public class UsuarioDao implements IUsuarioDao {
 
 	@Override
 	public Usuario obtenerUsuario(int idusuario) {
-		Connection con = null;
+		Conexion con = null;
 		Statement stm = null;
 		ResultSet rs = null;
 		
@@ -138,8 +137,8 @@ public class UsuarioDao implements IUsuarioDao {
 		
 		Usuario u = new Usuario();
 		try {
-			con = ConexionSingleton.getConnection();
-			stm = con.createStatement();
+			con = Conexion.connect();
+			stm = con.getConection().createStatement();
 			rs = stm.executeQuery(sql);
 			while (rs.next()) {
 				u.setId(rs.getInt(1));

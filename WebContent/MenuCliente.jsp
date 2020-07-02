@@ -1,5 +1,6 @@
-<h3>Menu Cliente</h3>
-<ul>
-	<li><a href="cliente/registroAccidente.jsp">Formulario reporte accidente</a></li>
-	<li><a href="#">Solicitar asesoría especial</a></li>
-</ul>
+<div class="menu">
+	<h3>Menu Cliente</h3>
+	<a href="cliente/registroAccidente.jsp">Formulario reporte accidente</a>
+	<a href="#">Solicitar asesoría especial</a>
+</div>
+

@@ -1,1 +1,4 @@
-<footer><p>Consultores de prevencion de Riesgos - 2020</p></footer>
+<footer>
+	<p>Desarrolado por TinyPrro - 2020</p>
+	<img alt="Guau!" src="${pageContext.request.contextPath}/img/tinyprro.png" id="perro">
+</footer>

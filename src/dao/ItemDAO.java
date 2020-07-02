@@ -111,7 +111,7 @@ public class ItemDAO implements IObjectDao<ItemDTO> {
 			res = ps.executeQuery();
 			
 			while(res.next()) {
-				i = new ItemDTO(res.getInt("iditem"), res.getString("concepto"), res.getFloat("precio"), res.getInt("cantidad"), res.getInt("factura_idfactura"));
+				i = new ItemDTO(res.getInt("iditem"), res.getString("concepto"), res.getFloat("preciounit"), res.getInt("cantidad"), res.getInt("factura_idfactura"));
 			}
 		} catch (SQLException e) {
 			System.out.println("Error: ItemDAO read()");

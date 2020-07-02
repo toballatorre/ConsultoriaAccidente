@@ -21,8 +21,8 @@ public class Conexion {
 		// Datos para la conexión a la base de datos
 		url = "jdbc:oracle:thin:@localhost:1521:xe";
 		driver = "oracle.jdbc.driver.OracleDriver";
-		user = "tinyprro";
-		password = "1234";
+		user = "consultoria";
+		password = "consultoria";
 		
 		try {
 			Class.forName(driver);//driver

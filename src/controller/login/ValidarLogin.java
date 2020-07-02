@@ -33,15 +33,18 @@ public class ValidarLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usuarios = new Usuario();
+		/*  Por ahora solo valida 3 usuarios del array en clase Usuario. Falta avanzar*/
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
-		
-		System.out.println(Arrays.toString(usuarios.getArr()));
 		System.out.println(user);
 		System.out.println(pass);
-		System.out.println(usuarios.validar(user));
-		System.out.println(usuarios.validar("cliente"));
+		
+		//LoginDTO logindto = LoginDTO()
+		
+		Usuario usuarios = new Usuario();
+		//System.out.println(Arrays.toString(usuarios.getArr()));
+		//System.out.println(usuarios.validar(user));
+		//System.out.println(usuarios.validar("cliente"));
 		
 		if (usuarios.validar(user)) {
 			HttpSession sesion = request.getSession();
@@ -66,20 +69,7 @@ public class ValidarLogin extends HttpServlet {
 			salida.println("location='index.jsp';");
 			salida.println("</script>");
 		}
-		
-		
-//		if(pass.equals("123")) {
-//			HttpSession sesion = request.getSession();
-//			sesion.setAttribute("user", user);
-//			response.sendRedirect("AreaCliente.jsp");			
-//		}else {
-//			PrintWriter salida = response.getWriter();
-//			salida.println("<script type=\"text/javascript\">");
-//			salida.println("alert('User or password incorrect');");
-//			salida.println("location='index.jsp';");
-//			salida.println("</script>");
-//		}
-		
+				
 	}
 
 }

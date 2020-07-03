@@ -19,7 +19,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 	private static final String SQL_READALL = "SELECT * FROM usuario";
 	
 	private static final Conexion con = Conexion.connect();
-	
+	/**
+	 * Crear e insertar un nuevo usuario
+	 */
 	@Override
 	public boolean create(UsuarioDTO o) {
 		boolean creado = false;
@@ -48,36 +50,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		
 		return creado;
 	}
-	/*
-	@Override
-	public boolean crearUsuario(UsuarioDTO user) {
-		boolean creado = false;
-		PreparedStatement ps;
-		
-		try {
-			ps = con.getConection().prepareStatement(SQL_INSERT);
-			ps.setString(1, user.getUsuario());
-			ps.setString(2, user.getTipousuario());
-			ps.setString(3, user.getClave());
-			ps.setString(4, user.getMail());
-			ps.setString(5, user.getActivo());
-				
-			
-			if (ps.executeUpdate() > 0) {
-				creado = true;
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("Error: ItemDAO create()");
-			e.printStackTrace();
-			
-		} finally {
-			con.closeConnection();
-		}
-		
-		return creado;
-	}*/
-
+	/**
+	 * Metodo que obtiene todos los Usuarios
+	 */
 	@Override
 	public List<UsuarioDTO> readAll() {
 		ArrayList<UsuarioDTO> listausers = new ArrayList<UsuarioDTO>();
@@ -103,34 +78,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 
 		return listausers;
 	}
-	/*
-	@Override
-	public List<UsuarioDTO> leerUsuarios() {
-		
-		ArrayList<UsuarioDTO> listausers = new ArrayList<UsuarioDTO>();
-		
-		PreparedStatement ps;
-		ResultSet res;
-		
-		try {
-			ps = con.getConection().prepareStatement(SQL_READALL);
-			res = ps.executeQuery();
-			
-			while(res.next()) {
-				listausers.add(new UsuarioDTO(res.getInt("idusuario"), res.getString("usuario"), res.getString("tipousuario"), res.getString("clave"), res.getString("mail"),res.getString("activo")));
-			}
-			return listausers;
-		} catch (SQLException e) {
-			
-			System.out.println("Error: UsuarioDAO leerUsuarios()");
-			e.printStackTrace();
-		} finally {
-			con.closeConnection();
-		}
-
-		return listausers;
-	}*/
-
+	/**
+	 * Actualizar los usuarios
+	 */
 	@Override
 	public boolean update(UsuarioDTO o) {
 		boolean actualizado = false;
@@ -157,35 +107,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		
 		return actualizado;
 	}
-	/*
-	@Override
-	public boolean actualizarUsuario(UsuarioDTO user) {
-		
-		boolean actualizado = false;
-		PreparedStatement ps;
-		
-		try {
-			ps = con.getConection().prepareStatement(SQL_UPDATE);
-			ps.setString(1, user.getUsuario());
-			ps.setString(2, user.getTipousuario());
-			ps.setString(3, user.getClave());
-			ps.setString(4, user.getMail());
-			ps.setString(5, user.getActivo());
-					
-			if(ps.executeUpdate() > 0) {
-				actualizado = true;
-			}
-		}catch (Exception e) {
-			System.out.println("Error: UsuarioDAO actualizarUsuario()");
-			e.printStackTrace();
-			
-		}finally {
-			con.closeConnection();
-		}
-		
-		return actualizado;
-	}*/
-	
+	/**
+	 * Elimina un usuario seleccionado por ID
+	 */
 	@Override
 	public boolean delete(Object key) {
 		boolean borrado = false;
@@ -208,30 +132,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		
 		return borrado;
 	}
-	/*
-	@Override
-	public boolean eliminarUsuario(UsuarioDTO user) {
-		boolean borrado = false;
-		PreparedStatement ps;
-		
-		try {
-			ps = con.getConection().prepareStatement(SQL_DELETE);
-			ps.setString(1, user.toString());
-			
-			if(ps.executeUpdate() > 0)
-				borrado = true;
-			
-		} catch (Exception e) {
-			System.out.println("Error: ItemDAO delete()");
-			e.printStackTrace();
-			
-		}finally {
-			con.closeConnection();
-		}
-		
-		return borrado;
-	}*/
-	
+	/**
+	 * Obtiene un usuario por ID
+	 */
 	@Override
 	public UsuarioDTO read(Object key) {
 		UsuarioDTO i = null;
@@ -257,31 +160,5 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 				
 		return i;
 	}
-	/*
-	@Override
-	public UsuarioDTO obtenerUsuario(Object key) {
-		UsuarioDTO i = null;
-		
-		PreparedStatement ps;
-		ResultSet res;
-		
-		try {
-			ps = con.getConection().prepareStatement(SQL_READ);
-			ps.setString(1, key.toString());
-			
-			res = ps.executeQuery();
-			
-			while(res.next()) {
-				i = new UsuarioDTO(res.getInt("idusuario"), res.getString("usuario"), res.getString("tipousuario"), res.getString("clave"), res.getString("mail"),res.getString("activo"));
-			}
-		} catch (SQLException e) {
-			System.out.println("Error: UsuarioDAO obtenerUsuario()");
-			e.printStackTrace();
-		}finally {
-			con.closeConnection();
-		}
-				
-		return i;
-	}*/
 
 }

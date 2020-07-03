@@ -36,8 +36,8 @@ public class ListarUsuarios extends HttpServlet {
 		UsuarioDAO userdao = new UsuarioDAO();
 		System.out.println(userdao);
 		System.out.println(userdao.toString());
-		List<UsuarioDTO> lusuarios = new ArrayList<UsuarioDTO>();
 		
+		List<UsuarioDTO> lusuarios = new ArrayList<UsuarioDTO>();
 		lusuarios = userdao.readAll();
 		System.out.println(lusuarios);
 		

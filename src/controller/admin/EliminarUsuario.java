@@ -40,10 +40,10 @@ public class EliminarUsuario extends HttpServlet {
 		user.setIdusuario(usuarioid);
 		
 		UsuarioDAO userdao = new UsuarioDAO();
-		boolean elimino = userdao.eliminarUsuario(user);
+		boolean elimino = userdao.delete(user);
 
 		List<UsuarioDTO> listadoeliminar = new ArrayList<UsuarioDTO>();
-		listadoeliminar = userdao.leerUsuarios();
+		listadoeliminar = userdao.readAll();
 		
 		String mensaje = "";
 		

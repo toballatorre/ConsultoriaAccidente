@@ -49,7 +49,7 @@ public class CrearUsuario extends HttpServlet {
 
 		UsuarioDTO user = new UsuarioDTO(usuario,tipousuario,clave,correo,activo);
 		UsuarioDAO userdao = new UsuarioDAO();
-		boolean agregar = userdao.crearUsuario(user);
+		boolean agregar = userdao.create(user);
 		
 		String mensaje = "";
 		

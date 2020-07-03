@@ -36,7 +36,7 @@ public class EditarUsuario extends HttpServlet {
 		
 		UsuarioDAO userdao = new UsuarioDAO();
 		UsuarioDTO user = new UsuarioDTO();
-		user = userdao.obtenerUsuario(usuarioid);
+		user = userdao.read(usuarioid);
 		
 		request.setAttribute("datosusuario", user);
 		request.getRequestDispatcher("EditarUsuario.jsp").forward(request, response);

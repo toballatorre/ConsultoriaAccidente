@@ -7,7 +7,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Crear usuario</title>
-	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">	
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -15,17 +15,18 @@
 	<jsp:include page="../MenuAdmin.jsp" />
 
 	<h1>Crear usuario</h1>
-
-	<c:if test="${cumensaje != null}">
-		<c:out value="${cumensaje}" />
-	</c:if>
-
+	<div class="mensajealerta">
+		<c:if test="${cumensaje != null}">
+			<c:out value="${cumensaje}" />
+		</c:if>
+	</div>
 	<form action="CrearUsuario" method="post">
-		Nombre: <input type="text" name="txtnombre" /><br /> Apellido: <input
-			type="text" name="txtapellido" /> <br /> Telefono: <input
-			type="text" name="txttelefono" /> <br /> Correo electrónico: <input
-			type="email" name="txtcorreo" /> <br /> <input type="submit"
-			value="Agregar usuario" />
+		Usuario: <input type="text" name="txtusuario" /><br />
+		Tipo Usuario: <input type="text" name="txttipouser" /> <br />
+		Clave: <input type="password" name="txtclave" /> <br />
+		Mail: <input type="email" name="txtcorreo" /> <br />
+		Activo: <input type="text" name="txtactivo" value="1" /> <br />
+		<input type="submit" value="Agregar usuario" />
 	</form>
 
 	<a href="${pageContext.request.contextPath}/ListarUsuarios">Volver

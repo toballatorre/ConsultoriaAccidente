@@ -2,14 +2,15 @@ package idao;
 
 import java.util.List;
 
-import modelo.Usuario;
+import modelo.UsuarioDTO;
 
 public interface IUsuarioDao {
 
-	public boolean crearUsuario(Usuario user);
-	public List<Usuario> leerUsuarios();
-	public boolean actualizarUsuario(Usuario user);
-	public boolean eliminarUsuario(Usuario user);
-	public Usuario obtenerUsuario(int idusuario);
+	public boolean crearUsuario(UsuarioDTO user);
+	public List<UsuarioDTO> leerUsuarios();
+	public boolean actualizarUsuario(UsuarioDTO user);
+	//public boolean eliminarUsuario(Object key);
+	public UsuarioDTO obtenerUsuario(Object key);
+	boolean eliminarUsuario(UsuarioDTO user);
 	
 }

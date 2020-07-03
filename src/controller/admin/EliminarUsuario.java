@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
-import modelo.Usuario;
+import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class EliminarUsuario
@@ -36,13 +36,13 @@ public class EliminarUsuario extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		int usuarioid = Integer.parseInt(request.getParameter("id"));
-		Usuario user = new Usuario();
+		UsuarioDTO user = new UsuarioDTO();
 		user.setId(usuarioid);
 		
 		UsuarioDAO userdao = new UsuarioDAO();
 		boolean elimino = userdao.eliminarUsuario(user);
 
-		List<Usuario> listadoeliminar = new ArrayList<Usuario>();
+		List<UsuarioDTO> listadoeliminar = new ArrayList<UsuarioDTO>();
 		listadoeliminar = userdao.leerUsuarios();
 		
 		String mensaje = "";

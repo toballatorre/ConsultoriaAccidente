@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
-import modelo.Usuario;
+import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class ListarUsuarios
@@ -32,16 +32,18 @@ public class ListarUsuarios extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		UsuarioDAO userdao = new UsuarioDAO();
-		List<Usuario> lusuarios = new ArrayList<Usuario>();
+		System.out.println(userdao);
+		System.out.println(userdao.toString());
+		List<UsuarioDTO> lusuarios = new ArrayList<UsuarioDTO>();
 		
 		lusuarios = userdao.leerUsuarios();
+		System.out.println(lusuarios);
 		
 		request.setAttribute("listadousuarios", lusuarios);
 		request.getRequestDispatcher("admin/ListadoUsuarios.jsp").forward(request, response);
-		//response.sendRedirect("http://www.google.cl");
+		
 	}
 
 	/**

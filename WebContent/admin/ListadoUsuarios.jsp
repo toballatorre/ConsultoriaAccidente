@@ -7,7 +7,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Listado de Usuarios</title>
-	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -23,24 +23,23 @@
 	<table>
 		<tr>
 			<th>ID</th>
-			<th>Nombre</th>
-			<th>Apellido</th>
-			<th>Correo electrónico</th>
-			<th>Teléfono</th>
-			<th>Acciones</th>
+			<th>Usuario</th>
+			<th>TipoUsuario</th>
+			<th>Clave</th>
+			<th>Mail</th>
+			<th>Activo</th>
 		</tr>
 
 		<c:forEach items="${listadousuarios}" var="user">
 			<tr>
-				<td>${user.getId()}</td>
-				<td>${user.getNombre()}</td>
-				<td>${user.getApellido()}</td>
-				<td>${user.getCorreo()}</td>
-				<td>${user.getTelefono()}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getId()}">Eliminar</a>
-					<a
-					href="${pageContext.request.contextPath}/EditarUsuario?id=${user.getId()}">Editar</a>
+				<td>${user.getIdusuario()}</td>
+				<td>${user.getUsuario()}</td>
+				<td>${user.getTipousuario()}</td>
+				<td>${user.getClave()}</td>
+				<td>${user.getMail()}</td>
+				<td>${user.getActivo()}</td>
+				<td><a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a>
+					<a href="${pageContext.request.contextPath}/EditarUsuario?id=${user.getIdusuario()}">Editar</a>
 				</td>
 			</tr>
 		</c:forEach>

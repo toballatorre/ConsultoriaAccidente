@@ -23,7 +23,7 @@ public class Prueba1 {
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		List<UsuarioDTO> listaUsuarios = new ArrayList<UsuarioDTO>();
-		listaUsuarios = uDAO.leerUsuarios();
+		listaUsuarios = uDAO.readAll();
 		
 		for (UsuarioDTO u : listaUsuarios) {
 			System.out.println(u.toString());

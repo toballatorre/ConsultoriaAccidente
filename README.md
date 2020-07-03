@@ -68,9 +68,8 @@ muchas empresas se encuentran en zonas donde no hay conexión de ese tipo.
 2. Creamos el diagrama de casos
 <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/DiagramaCasodeUso.jpeg" width="50%">
 3. Modelo de Datos
-![ModeloDatos]()
+**AQUI VA EL MODELO DE DATOS**
 4. Secuencias
-
-  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%"></img>
-  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="30%"></img>
-  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%"></img>
+<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%"></img>
+<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="30%"></img>
+<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%"></img>

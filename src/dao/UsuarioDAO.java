@@ -3,7 +3,6 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class UsuarioDAO implements IUsuarioDao {
 	private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
 	private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE ROWID = ?";
 	private static final String SQL_READ = "SELECT * FROM usuario WHERE idusuario = ?";
-	private static final String SQL_READALL = "SELECT * FROM item";
+	private static final String SQL_READALL = "SELECT * FROM usuario";
 	
 	private static final Conexion con = Conexion.connect();
 	
@@ -53,7 +52,9 @@ public class UsuarioDAO implements IUsuarioDao {
 
 	@Override
 	public List<UsuarioDTO> leerUsuarios() {
+		
 		ArrayList<UsuarioDTO> listausers = new ArrayList<UsuarioDTO>();
+		
 		PreparedStatement ps;
 		ResultSet res;
 		

@@ -37,7 +37,7 @@ public class EliminarUsuario extends HttpServlet {
 		
 		int usuarioid = Integer.parseInt(request.getParameter("id"));
 		UsuarioDTO user = new UsuarioDTO();
-		user.setId(usuarioid);
+		user.setIdusuario(usuarioid);
 		
 		UsuarioDAO userdao = new UsuarioDAO();
 		boolean elimino = userdao.eliminarUsuario(user);

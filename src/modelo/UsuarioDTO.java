@@ -92,7 +92,11 @@ public class UsuarioDTO {
 	public void setActivo(String activo) {
 		this.activo = activo;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "UsuarioDTO [idusuario=" + idusuario + ", usuario=" + usuario + ", tipousuario=" + tipousuario
+				+ ", clave=" + clave + ", mail=" + mail + ", activo=" + activo + "]";
 	}
+	
+}

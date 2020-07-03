@@ -1,8 +1,8 @@
 # No más Accidentabilidad
 
 ### *Integrantes*
-- *Takeshi Kita*
-- *Cristóbal Latorre*
+- **Takeshi Kita** - [takeshidev](https://github.com/takeshidev)
+- **Cristóbal Latorre** - [toballatorre](https://github.com/toballatorre)
 
 ## Tema:
 Construir aplicaciones web dinámicas utilizando el entorno de desarrollo Java.
@@ -70,6 +70,9 @@ muchas empresas se encuentran en zonas donde no hay conexión de ese tipo.
 3. Modelo de Datos
 ![ModeloDatos]()
 4. Secuencias
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="50%">
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="50%">
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="50%">
+
+  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%" align="left"></img>
+  <p align="center">
+  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="30%"></img>
+  </p>
+  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%" align="right"></img>

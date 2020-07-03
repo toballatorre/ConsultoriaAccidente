@@ -71,8 +71,6 @@ muchas empresas se encuentran en zonas donde no hay conexión de ese tipo.
 ![ModeloDatos]()
 4. Secuencias
 
-  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%" align="left"></img>
-  <p align="center">
+  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%"></img>
   <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="30%"></img>
-  </p>
-  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%" align="right"></img>
+  <img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%"></img>

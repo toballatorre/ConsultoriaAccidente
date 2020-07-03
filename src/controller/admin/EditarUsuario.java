@@ -39,7 +39,7 @@ public class EditarUsuario extends HttpServlet {
 		user = userdao.read(usuarioid);
 		
 		request.setAttribute("datosusuario", user);
-		request.getRequestDispatcher("admin/EditarUsuario.jsp").forward(request, response);
+		request.getRequestDispatcher("EditarUsuario.jsp").forward(request, response);
 	}
 
 	/**
@@ -48,18 +48,17 @@ public class EditarUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
-		String usuario = request.getParameter("txtusuario");
-		String tipousuario = request.getParameter("txttipousuario");
-		String clave = request.getParameter("txtclave");
-		String mail = request.getParameter("txtmail");
-		String activo = request.getParameter("txtactivo");
-		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
+		/*
+		String nombre = request.getParameter("txtnombre");
+		String apellido = request.getParameter("txtapellido");
+		String correo = request.getParameter("txtcorreo");
+		String telefono = request.getParameter("txttelefono");
+		int id = Integer.parseInt(request.getParameter("hdnidusuario"));
 
-		UsuarioDTO user = new UsuarioDTO(idusuario,usuario,tipousuario,clave,mail,activo);
+		UsuarioDTO user = new UsuarioDTO(id,nombre,apellido,correo,telefono);
 		
 		UsuarioDAO userdao = new UsuarioDAO();
-		boolean editar = userdao.update(user);
+		boolean editar = userdao.actualizarUsuario(user);
 		
 		String mensaje = "";
 		
@@ -70,8 +69,8 @@ public class EditarUsuario extends HttpServlet {
 
 		request.setAttribute("datosusuario", user);
 		request.setAttribute("cumensaje", mensaje);
-		request.getRequestDispatcher("admin/EditarUsuario.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("EditarUsuario.jsp").forward(request, response);
+		*/
 		
 	}
 

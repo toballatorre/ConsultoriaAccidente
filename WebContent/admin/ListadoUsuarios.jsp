@@ -15,11 +15,10 @@
 	<jsp:include page="../MenuAdmin.jsp" />
 	
 	<h1>Listado de Usuarios</h1>
-	<div class="mensajealerta">
-		<c:if test="${cumensaje != null}">
-			<c:out value="${cumensaje}" />
-		</c:if>
-	</div>
+
+	<c:if test="${cumensaje != null}">
+		<c:out value="${cumensaje}" />
+	</c:if>
 
 	<table>
 		<tr>
@@ -39,7 +38,7 @@
 				<td>${user.getClave()}</td>
 				<td>${user.getMail()}</td>
 				<td>${user.getActivo()}</td>
-				<td><!--<a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a>-->
+				<td><a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a>
 					<a href="${pageContext.request.contextPath}/EditarUsuario?id=${user.getIdusuario()}">Editar</a>
 				</td>
 			</tr>

@@ -35,21 +35,17 @@ public class EliminarUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//int idusuario = Integer.parseInt(request.getParameter("idusuario"));
-		//System.out.println(idusuario);
-		//int usuarioid = Integer.parseInt(request.getParameter("id"));
-		//System.out.println(usuarioid);
-		System.out.println("Hola");
-		//UsuarioDTO user = new UsuarioDTO();
-		//user.setIdusuario(usuarioid);
+		int usuarioid = Integer.parseInt(request.getParameter("id"));
+		UsuarioDTO user = new UsuarioDTO();
+		user.setIdusuario(usuarioid);
 		
-		//UsuarioDAO userdao = new UsuarioDAO();
-		//boolean elimino = userdao.delete(user);
+		UsuarioDAO userdao = new UsuarioDAO();
+		boolean elimino = userdao.delete(user);
 
-		//List<UsuarioDTO> listadoeliminar = new ArrayList<UsuarioDTO>();
-		//listadoeliminar = userdao.readAll();
+		List<UsuarioDTO> listadoeliminar = new ArrayList<UsuarioDTO>();
+		listadoeliminar = userdao.readAll();
 		
-		/*String mensaje = "";
+		String mensaje = "";
 		
 		if (elimino)
 			mensaje = "El usuario ha sido eliminado exitosamente";
@@ -58,8 +54,8 @@ public class EliminarUsuario extends HttpServlet {
 		
 		request.setAttribute("cumensaje", mensaje);
 		request.setAttribute("listadousuarios", listadoeliminar);
-		request.getRequestDispatcher("admin/ListadoUsuarios.jsp").forward(request, response);
-		*/
+		request.getRequestDispatcher("ListadoUsuarios.jsp").forward(request, response);
+		
 	}
 
 	/**

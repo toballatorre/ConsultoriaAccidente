@@ -2,7 +2,6 @@ package controller.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.usuarios.Usuario;
+import dao.UsuarioDAO;
+import modelo.UsuarioDTO;
 
 
 /**
@@ -33,39 +33,58 @@ public class ValidarLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*  Por ahora solo valida 3 usuarios del array en clase Usuario. Falta avanzar*/
+
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
+		
+		UsuarioDAO uDAO = new UsuarioDAO();
+		UsuarioDTO uDTO;
+		
+		uDTO = uDAO.readUsername(user);
+		
+		System.out.println(uDTO);
 		System.out.println(user);
 		System.out.println(pass);
 		
-		//LoginDTO logindto = LoginDTO()
-		
-		Usuario usuarios = new Usuario();
-		//System.out.println(Arrays.toString(usuarios.getArr()));
-		//System.out.println(usuarios.validar(user));
-		//System.out.println(usuarios.validar("cliente"));
-		
-		if (usuarios.validar(user)) {
-			HttpSession sesion = request.getSession();
-			sesion.setAttribute("user", user);
-			System.out.println(user);
-			
-			if (user.equals("cliente")) {
-				sesion.setAttribute("tipoUsuario", "cliente");
-				response.sendRedirect("AreaCliente.jsp");	
-			} else if (user.equals("admin")){
-				sesion.setAttribute("tipoUsuario", "admin");
-				response.sendRedirect("AreaAdmin.jsp");
-			} else {
-				sesion.setAttribute("tipoUsuario", "profesional");
-				response.sendRedirect("AreaProfesional.jsp");
+		if (uDTO != null) {
+			System.out.println("Activo: " + uDTO.getActivo());
+			if(uDTO.getActivo().equals("1")) {
+				
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("user", uDTO.getUsuario());
+				System.out.println("Login as: " + user);
+				
+				switch (uDTO.getTipousuario()) {
+				case "cliente":
+					sesion.setAttribute("tipoUsuario", "cliente");
+					sesion.setAttribute("idUsuario", uDTO.getIdusuario());
+					request.getRequestDispatcher("AreaCliente.jsp").forward(request, response);
+					break;
+				case "admin":
+					sesion.setAttribute("tipoUsuario", "admin");
+					sesion.setAttribute("idUsuario", uDTO.getIdusuario());
+					request.getRequestDispatcher("AreaAdmin.jsp").forward(request, response);
+					break;
+				case "profesional":
+					sesion.setAttribute("tipoUsuario", "profesional");
+					sesion.setAttribute("idUsuario", uDTO.getIdusuario());
+					request.getRequestDispatcher("AreaProfesional.jsp").forward(request, response);
+					break;
+				default:
+					break;
+				}
+			}else {
+				PrintWriter salida = response.getWriter();
+				salida.println("<script type=\"text/javascript\">");
+				salida.println("alert('Usuario desactivado, porfavor contactarse su administrador');");
+				salida.println("location='index.jsp';");
+				salida.println("</script>");
 			}
 			
 		} else {
 			PrintWriter salida = response.getWriter();
 			salida.println("<script type=\"text/javascript\">");
-			salida.println("alert('User no encontrado');");
+			salida.println("alert('Usuario no encontrado');");
 			salida.println("location='index.jsp';");
 			salida.println("</script>");
 		}

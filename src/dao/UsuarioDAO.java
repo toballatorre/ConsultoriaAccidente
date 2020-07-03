@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import idao.IObjectDao;
+//import modelo.LoginDTO;
 import modelo.UsuarioDTO;
 import conectar.Conexion;
 
@@ -16,6 +17,7 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 	private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
 	private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE ROWID = ?";
 	private static final String SQL_READ = "SELECT * FROM usuario WHERE idusuario = ?";
+	private static final String SQL_READ_BY_USERNAME = "SELECT * FROM usuario WHERE usuario = ?";
 	private static final String SQL_READALL = "SELECT * FROM usuario";
 	
 	private static final Conexion con = Conexion.connect();
@@ -152,12 +154,41 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 				i = new UsuarioDTO(res.getInt("idusuario"), res.getString("usuario"), res.getString("tipousuario"), res.getString("clave"), res.getString("mail"),res.getString("activo"));
 			}
 		} catch (SQLException e) {
-			System.out.println("Error: UsuarioDAO obtenerUsuario()");
+			System.out.println("Error: UsuarioDAO read()");
 			e.printStackTrace();
 		}finally {
 			con.closeConnection();
 		}
 				
+		return i;
+	}
+	
+	/**
+	 * Método que retorna los datos del usuario usando por parámetro el username
+	 * @param username
+	 * @return retorna un DTO con todos los datos del usuario leídos desde la Base de datos
+	 */
+	public UsuarioDTO readUsername(String username) {
+		UsuarioDTO i = null;
+		
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+			ps = con.getConection().prepareStatement(SQL_READ_BY_USERNAME);
+			ps.setString(1, username);
+			
+			res = ps.executeQuery();
+			
+			while(res.next()) {
+				i = new UsuarioDTO(res.getInt("idusuario"), res.getString("usuario"), res.getString("tipousuario"), res.getString("clave"),res.getString("mail"),res.getString("activo"));
+			}
+		} catch (SQLException e) {
+			System.out.println("Error: LoginDAO read()");
+			e.printStackTrace();
+		}finally {
+			con.closeConnection();
+		}		
 		return i;
 	}
 

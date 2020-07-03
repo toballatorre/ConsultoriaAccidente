@@ -1,7 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<!--Si no detecta usuario, desplega form de login-->
+	
+	<!--Si no detecta una sesión, muestra form de login-->
 	<c:choose>
+
 		<c:when test="${empty sessionScope.user}"> 
+		
 		<form action="ValidarLogin" method="POST">
 			<!--<p>Login</p> -->
 			<input type="text" name="user" id="user" placeholder="Usuario" required>

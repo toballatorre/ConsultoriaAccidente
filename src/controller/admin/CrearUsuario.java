@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
-import modelo.Usuario;
+import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class CrearUsuario
@@ -41,13 +41,13 @@ public class CrearUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		String nombre = request.getParameter("txtnombre");
-		String apellido = request.getParameter("txtapellido");
+		String usuario = request.getParameter("txtusuario");
+		String tipousuario = request.getParameter("txttipouser");
+		String clave = request.getParameter("txtclave");
 		String correo = request.getParameter("txtcorreo");
-		String telefono = request.getParameter("txttelefono");
+		String activo = request.getParameter("txtactivo");
 
-		Usuario user = new Usuario(nombre,apellido,correo,telefono);
-		
+		UsuarioDTO user = new UsuarioDTO(usuario,tipousuario,clave,correo,activo);
 		UsuarioDAO userdao = new UsuarioDAO();
 		boolean agregar = userdao.crearUsuario(user);
 		

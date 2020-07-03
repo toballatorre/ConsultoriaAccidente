@@ -1,7 +1,7 @@
 package model.usuarios;
 
 public class Usuario {
-
+/*ESTA ES LA CLASE QUE USA EL LOGIN MULA. no de conecta a la db*/
 	private String usuarios[] = { "cliente", "admin", "profesional" };
 
 	public Usuario() {

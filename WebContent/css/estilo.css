@@ -96,3 +96,8 @@ footer p {
 #perro{
 	height:40px;
 }
+
+.mensajealerta{
+	color: red;
+	font-weight: bolder;
+}

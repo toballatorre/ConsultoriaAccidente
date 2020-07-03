@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
-import modelo.Usuario;
+import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class EditarUsuario
@@ -35,7 +35,7 @@ public class EditarUsuario extends HttpServlet {
 		int usuarioid = Integer.parseInt(request.getParameter("id"));
 		
 		UsuarioDAO userdao = new UsuarioDAO();
-		Usuario user = new Usuario();
+		UsuarioDTO user = new UsuarioDTO();
 		user = userdao.obtenerUsuario(usuarioid);
 		
 		request.setAttribute("datosusuario", user);
@@ -55,7 +55,7 @@ public class EditarUsuario extends HttpServlet {
 		String telefono = request.getParameter("txttelefono");
 		int id = Integer.parseInt(request.getParameter("hdnidusuario"));
 
-		Usuario user = new Usuario(id,nombre,apellido,correo,telefono);
+		UsuarioDTO user = new UsuarioDTO(id,nombre,apellido,correo,telefono);
 		
 		UsuarioDAO userdao = new UsuarioDAO();
 		boolean editar = userdao.actualizarUsuario(user);

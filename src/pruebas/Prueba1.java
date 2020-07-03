@@ -2,8 +2,8 @@ package pruebas;
 
 import dao.ItemDAO;
 import modelo.ItemDTO;
-import dao.LoginDAO;
-import modelo.LoginDTO;
+import dao.UsuarioDAO;
+import modelo.UsuarioDTO;
 
 public class Prueba1 {
 
@@ -15,8 +15,9 @@ public class Prueba1 {
 		
 		
 		
-		
-		
+		UsuarioDAO itemdao = new UsuarioDAO();
+		UsuarioDTO userbuscado = itemdao.obtenerUsuario(5) ;
+		System.out.println(userbuscado.getIdusuario()+" "+userbuscado.getUsuario()+" "+userbuscado.getMail()+" "+userbuscado.getTipousuario());
 	}
 
 }

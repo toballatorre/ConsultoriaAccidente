@@ -66,10 +66,10 @@ muchas empresas se encuentran en zonas donde no hay conexión de ese tipo.
 1. Iniciamos diseñando el diagrama de casos de uso que se proveyó en la asignación del proyecto.
 ![CasosDeUso](https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/CasosDeUso.jpg)
 2. Creamos el diagrama de casos
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/DiagramaCasodeUso.jpeg" width="50%">
+![](https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/DiagramaCasodeUso.jpeg)
 3. Modelo de Datos
 **AQUI VA EL MODELO DE DATOS**
 4. Secuencias
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg" width="30%"></img>
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg" width="30%"></img>
-<img src="https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg" width="30%"></img>
+![](https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuanciaAdmin.jpg)
+![](https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaCliente.jpg)
+![](https://github.com/toballatorre/ConsultoriaAccidente/blob/master/WebContent/img/DiagramasModelos/SecuenciaProfesional.jpg)

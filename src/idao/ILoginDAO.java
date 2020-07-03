@@ -2,8 +2,7 @@ package idao;
 
 import java.util.List;
 
-
-public interface IObjectDao <Obj>{// Generico para aplicar a todos los DAOs
+public interface ILoginDAO <Obj>{
 	
 	public boolean create(Obj o);
 	public boolean delete(Object key);

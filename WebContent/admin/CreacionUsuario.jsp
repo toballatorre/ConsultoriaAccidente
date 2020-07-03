@@ -21,16 +21,38 @@
 		</c:if>
 	</div>
 	<form action="CrearUsuario" method="post">
-		Usuario: <input type="text" name="txtusuario" /><br />
-		Tipo Usuario: <input type="text" name="txttipouser" /> <br />
-		Clave: <input type="password" name="txtclave" /> <br />
-		Mail: <input type="email" name="txtcorreo" /> <br />
-		Activo: <input type="text" name="txtactivo" value="1" /> <br />
-		<input type="submit" value="Agregar usuario" />
+		<table class="tabla">
+			<tr>
+				<td>Usuario:</td>
+				<td><input type="text" name="txtusuario" /></td>
+			</tr>
+			<tr>
+				<td>Tipo Usuario:</td>
+				<td><label for="admin">Admin</label><input type="radio" id="admin" name="txttipouser" value="admin" checked>
+					<label for="pro">Profesional</label><input type="radio" id="pro" name="txttipouser" value="profesional">
+					<label for="cliente">Cliente</label><input type="radio" id="cliente" name="txttipouser" value="cliente"></td>
+			</tr>
+			<tr>
+				<td>Clave:</td>
+				<td><input type="password" name="txtclave" /></td>
+			</tr>
+			<tr>
+				<td>Mail:</td>
+				<td><input type="email" name="txtcorreo" /></td>
+			</tr>
+			<tr>
+				<td>Activo:</td>
+				<td><label for="si">Si</label><input type="radio" id="si" name="txtactivo" value="1" checked><br>
+					<label for="no">No</label><input type="radio" id="no" name="txtactivo" value="0"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Agregar usuario" /></td>
+			</tr>
+		</table>
 	</form>
 
-	<a href="${pageContext.request.contextPath}/ListarUsuarios">Volver
-		al listado de usuarios</a>
+	<a href="${pageContext.request.contextPath}/ListarUsuarios">Volver al listado de usuarios</a>
 		
 <jsp:include page="../footer.jsp" />
 </body>

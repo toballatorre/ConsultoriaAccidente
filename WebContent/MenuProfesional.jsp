@@ -1,12 +1,12 @@
-<h3>Menu Profesional</h3>
-<ul>
-	<li><a href="#">Crear Capacitacion</a></li>
-	<li><a href="#">Planificar visita</a></li>
-	<li><a href="#">Revisar cliente</a></li>
-	<li><a href="#">Crear caso asesoria</a></li>
-	<li><a href="#">Ingresar actividad de mejora</a></li>
-	<li><a href="#">Revisar activida de mejora</a></li>
-	<li><a href="#">Ingresar asesoria</a></li>
-	<li><a href="#">Crear checklist</a></li>
-	<li><a href="#">Responder checklist</a></li>
-</ul>
+<div class="menu">
+	<h3>Menu Profesional</h3>
+	<a href="#">Crear Capacitacion</a>
+	<a href="#">Planificar visita</a>
+	<a href="#">Revisar cliente</a>
+	<a href="#">Crear caso asesoria</a>
+	<a href="#">Ingresar actividad de mejora</a>
+	<a href="#">Revisar activida de mejora</a>
+	<a href="#">Ingresar asesoria</a>
+	<a href="#">Crear checklist</a>
+	<a href="#">Responder checklist</a>
+</div>

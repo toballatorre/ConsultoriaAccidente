@@ -48,7 +48,7 @@ public class EditarUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
+		/*
 		String nombre = request.getParameter("txtnombre");
 		String apellido = request.getParameter("txtapellido");
 		String correo = request.getParameter("txtcorreo");
@@ -70,6 +70,7 @@ public class EditarUsuario extends HttpServlet {
 		request.setAttribute("datosusuario", user);
 		request.setAttribute("cumensaje", mensaje);
 		request.getRequestDispatcher("EditarUsuario.jsp").forward(request, response);
+		*/
 		
 	}
 

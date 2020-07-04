@@ -42,12 +42,16 @@ header {
 	box-shadow: 0 0 10px hsla(202, 82%, 47%, 0.548);
 	border-radius: 0px 0px 20px 20px;
 	display: inline-flex;
-	width: 100%;
+	width: 95%;
 	margin-bottom: 1em;
 }
 
 header .cabecera {
-	min-width: 80%;
+	width:75%;
+	text-align: center;
+}
+header .areaLogin {
+	width:25%;
 	text-align: center;
 }
 #casco{
@@ -77,6 +81,17 @@ header .cabecera {
 	border: 3px solid blue;
 	background-color: hsla(202, 82%, 47%, 0.548);
 	}
+.contenido{
+	margin: 15px auto;
+	text-align: center;
+	background-color: white;
+	box-shadow: 0 0 10px hsla(202, 82%, 47%, 0.548);
+	border-radius: 20px 20px 20px 20px;
+	max-width:95%;
+}
+.contenido table{
+	margin:auto;
+}
 
 footer {
 	padding: 1em;
@@ -84,7 +99,7 @@ footer {
 	box-shadow: 0 0 10px hsla(202, 82%, 47%, 0.548);
 	border-radius: 20px 20px 0px 0px;
 	height: 8em;
-	width: 100%;
+	width: 95%;
 	margin-top: 1em;
 	text-align: center;
 }

@@ -2,6 +2,8 @@ package idao;
 
 import java.util.List;
 
+import modelo.ReporteAccidenteDTO;
+
 
 public interface IObjectDao <Obj>{// Generico para aplicar a todos los DAOs
 	
@@ -11,5 +13,6 @@ public interface IObjectDao <Obj>{// Generico para aplicar a todos los DAOs
 	
 	public Obj read(Object key);
 	public List<Obj> readAll();
+	public List<Obj> readAll(Object key);
 	
 }

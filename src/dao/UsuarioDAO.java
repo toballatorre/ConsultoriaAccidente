@@ -196,5 +196,10 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		}		
 		return i;
 	}
+	@Override
+	public List<UsuarioDTO> readAll(Object key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

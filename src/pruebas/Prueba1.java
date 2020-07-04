@@ -1,6 +1,11 @@
 package pruebas;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.ReporteAccidenteDAO;
 import dao.UsuarioDAO;
+import modelo.ReporteAccidenteDTO;
 import modelo.UsuarioDTO;
 
 public class Prueba1 {
@@ -18,14 +23,21 @@ public class Prueba1 {
 		UsuarioDTO userbuscado = itemdao.obtenerUsuario(5) ;
 		System.out.println(userbuscado.getIdusuario()+" "+userbuscado.getUsuario()+" "+userbuscado.getMail()+" "+userbuscado.getTipousuario());*/
 		
-		/*
-		UsuarioDAO uDAO = new UsuarioDAO();
+		
+		/*UsuarioDAO uDAO = new UsuarioDAO();
 		List<UsuarioDTO> listaUsuarios = new ArrayList<UsuarioDTO>();
 		listaUsuarios = uDAO.readAll();
 		
 		for (UsuarioDTO u : listaUsuarios) {
 			System.out.println(u.toString());
 		}*/
+		ReporteAccidenteDAO reportedao = new ReporteAccidenteDAO();
+		List<ReporteAccidenteDTO> lreportes = new ArrayList<ReporteAccidenteDTO>();
+		lreportes = reportedao.readAll(2);
+		
+		for (ReporteAccidenteDTO u : lreportes) {
+			System.out.println(u.toString());
+		}
 		
 		/*
 		UsuarioDAO uDAO = new UsuarioDAO();

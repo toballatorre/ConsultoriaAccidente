@@ -1,6 +1,6 @@
 package modelo;
 
-public class RegistroAccidente {
+public class ReporteAccidenteDTO {
 	
 	/* ATRIBUTOS */
 	private int idReporte;
@@ -12,11 +12,11 @@ public class RegistroAccidente {
 	private int pkIdCliente;
 	
 	/* CONSTRUCTORES */
-	public RegistroAccidente() {
+	public ReporteAccidenteDTO() {
 	}
 	
 	/* Todos los campos */
-	public RegistroAccidente(int idReporte, String tipoAccidente, int diasPerdidos, String fechaAccidente,
+	public ReporteAccidenteDTO(int idReporte, String tipoAccidente, int diasPerdidos, String fechaAccidente,
 			String lugarAccidente, String descripcion, int pkIdCliente) {
 		this.idReporte = idReporte;
 		this.tipoAccidente = tipoAccidente;
@@ -27,7 +27,7 @@ public class RegistroAccidente {
 		this.pkIdCliente = pkIdCliente;
 	}
 	/* Sin el campo id */
-	public RegistroAccidente(String tipoAccidente, int diasPerdidos, String fechaAccidente, String lugarAccidente,
+	public ReporteAccidenteDTO(String tipoAccidente, int diasPerdidos, String fechaAccidente, String lugarAccidente,
 			String descripcion, int pkIdCliente) {
 		this.tipoAccidente = tipoAccidente;
 		this.diasPerdidos = diasPerdidos;

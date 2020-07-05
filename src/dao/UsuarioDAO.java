@@ -14,8 +14,8 @@ import conectar.Conexion;
 public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 
 	private static final String SQL_INSERT = "INSERT INTO usuario (USUARIO, TIPOUSUARIO, CLAVE, MAIL, ACTIVO) VALUES(?, ?, ?, ?, ?)";
-	private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
-	private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE ROWID = ?";
+	//private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
+	private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE idusuario = ?";
 	private static final String SQL_READ = "SELECT * FROM usuario WHERE idusuario = ?";
 	private static final String SQL_READ_BY_USERNAME = "SELECT * FROM usuario WHERE usuario = ?";
 	private static final String SQL_READALL = "SELECT * FROM usuario";
@@ -95,6 +95,7 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 			ps.setString(3, o.getClave());
 			ps.setString(4, o.getMail());
 			ps.setString(5, o.getActivo());
+			ps.setInt(6, o.getIdusuario());
 					
 			if(ps.executeUpdate() > 0) {
 				actualizado = true;
@@ -111,11 +112,15 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 	}
 	/**
 	 * Elimina un usuario seleccionado por ID
+	 * DEPRECATED
 	 */
 	@Override
 	public boolean delete(Object key) {
+		/*LOS USUARIOS NO SE BORRAN, SOLO SE DESACTIVAN
+		 * 
+		 */
 		boolean borrado = false;
-		PreparedStatement ps;
+		/*PreparedStatement ps;
 		
 		try {
 			ps = con.getConection().prepareStatement(SQL_DELETE);
@@ -131,7 +136,7 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		}finally {
 			con.closeConnection();
 		}
-		
+		*/
 		return borrado;
 	}
 	/**
@@ -190,6 +195,11 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 			con.closeConnection();
 		}		
 		return i;
+	}
+	@Override
+	public List<UsuarioDTO> readAll(Object key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

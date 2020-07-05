@@ -42,9 +42,9 @@ public class CrearUsuario extends HttpServlet {
 		//doGet(request, response);
 		
 		String usuario = request.getParameter("txtusuario");
-		String tipousuario = request.getParameter("txttipouser");
+		String tipousuario = request.getParameter("txttipousuario");
 		String clave = request.getParameter("txtclave");
-		String correo = request.getParameter("txtcorreo");
+		String correo = request.getParameter("txtmail");
 		String activo = request.getParameter("txtactivo");
 
 		UsuarioDTO user = new UsuarioDTO(usuario,tipousuario,clave,correo,activo);

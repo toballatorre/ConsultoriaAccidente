@@ -69,8 +69,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		return false;
 	}
 
-	@Override
-	public List<ReporteAccidenteDTO> readAll(Object key) {
+	public List<ReporteAccidenteDTO> readAllIdClient(Object key) {
 		ArrayList<ReporteAccidenteDTO> listareportes = new ArrayList<ReporteAccidenteDTO>();
 		
 		PreparedStatement ps;

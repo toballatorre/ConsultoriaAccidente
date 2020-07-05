@@ -40,7 +40,7 @@ public class ReporteAccReadAll extends HttpServlet {
 		System.out.println(reportedao.toString());
 		List<ReporteAccidenteDTO> lreportes = new ArrayList<ReporteAccidenteDTO>();
 		
-		lreportes = reportedao.readAll(2);
+		lreportes = reportedao.readAllIdClient(2);
 		System.out.println(lreportes);
 		
 		request.setAttribute("listadoreportes", lreportes);

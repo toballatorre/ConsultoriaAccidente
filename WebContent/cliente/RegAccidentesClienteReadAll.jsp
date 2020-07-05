@@ -6,15 +6,15 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Listado de Usuarios</title>
+	<title>Listado Accidentabilidad</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador</h1>
+	<h1>Vista Cliente</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
 	<div class="contenido">
-		<h1>Listado de Usuarios</h1>
+		<h1>Registros de Accidentes</h1>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />
@@ -24,31 +24,30 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Usuario</th>
-				<th>TipoUsuario</th>
-				<th>Clave</th>
-				<th>Mail</th>
-				<th>Activo</th>
+				<th>Tipo Accidente</th>
+				<th>Dias perdidos</th>
+				<th>Fecha accidente</th>
+				<th>Lugar</th>
+				<th>Descripcion</th>
 			</tr>
 	
-			<c:forEach items="${listadousuarios}" var="user">
+			<c:forEach items="${listadoreportes}" var="reporte">
 				<tr>
-					<td>${user.getIdusuario()}</td>
-					<td>${user.getUsuario()}</td>
-					<td>${user.getTipousuario()}</td>
-					<td>${user.getClave()}</td>
-					<td>${user.getMail()}</td>
-					<td>${user.getActivo()}</td>
+					<td>${reporte.getidReporte()}</td>
+					<td>${reporte.gettipoAccidente()}</td>
+					<td>${reporte.getdiasPerdidos()}</td>
+					<td>${reporte.getfechaAccidente()}</td>
+					<td>${reporte.getlugarAccidente()}</td>
+					<td>${reporte.getdescripcion()}</td>
 					<td><!-- <a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a> -->
-						<a href="${pageContext.request.contextPath}/EditarUsuario?id=${user.getIdusuario()}">Editar</a>
+						<a href="#">Editar</a>
 					</td>
 				</tr>
 			</c:forEach>
 	
 		</table>
 	
-		<a href="${pageContext.request.contextPath}/CrearUsuario">Creación
-			de usuarios</a>
+		<a href="${pageContext.request.contextPath}/ReporteCreate">Crear nuevo registro</a>
 	</div>
 <jsp:include page="../footer.jsp" />
 </body>

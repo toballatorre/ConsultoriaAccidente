@@ -1,8 +1,5 @@
 package pruebas;
 
-import dao.UsuarioDAO;
-import modelo.UsuarioDTO;
-
 public class Prueba1 {
 
 	public static void main(String[] args) {

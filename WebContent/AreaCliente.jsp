@@ -10,9 +10,12 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<h1>Vista Cliente</h1>
+	<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
 	<jsp:include page="MenuCliente.jsp" />
 	
+		IdUser:<c:out value='${sessionScope.idUsuario}'/><br>
+	IdCliente:<c:out value='${sessionScope.idCliente}'/><br>
+	Cliente: <c:out value='${sessionScope.nombreCliente}'/>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

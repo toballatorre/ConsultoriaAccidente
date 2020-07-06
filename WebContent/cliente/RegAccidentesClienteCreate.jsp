@@ -27,26 +27,28 @@
 	<form action="ReporteAccCreate" method="POST">
 		<table>
 			<tr>
-				<td>Tipo Accidente</td>
-				<td><input type="text" name="tipoAccidente"	placeholder="Tipo Accidente"></td>
+				<td>Tipo accidente</td>
+				<td><input type="radio" id="Laboral" name="tipoAccidente" value="Laboral">
+				<label for="tipoAccidente">Laboral</label>
+				<input type="radio" id="Trayecto" name="tipoAccidente" value="Trayecto">
+				<label for="tipoAccidente">Trayecto</label><br>
+				</td>
 			</tr>
 			<tr>
 				<td>Cantidad días perdidos</td>
-				<td><input type="number" name="diasPerdidos" required></td>
+				<td><input type="number" name="diasPerdidos" min="0" max="365" required></td>
 			</tr>
 			<tr>
-				<td>Fecha del Acciendente</td>	
-				<td><input type="text" name="fechaAccidente" id="fecha" placeholder="${fechaAhora}" required readonly></td>
+				<td>Fecha del Accidente</td>	
+				<td><input type="text" name="fechaAccidente" id="fecha" required readonly></td>
 			</tr>
 			<tr>
 				<td>Dirección del lugar del accidente</td>
-				<td><input type="text" name="lugarAccidente"
-					placeholder="Lugar del Accidente" required></td>
+				<td><input type="text" name="lugarAccidente" required></td>
 			</tr>
 			<tr>
 				<td>Descripción de los hechos:</td>
-				<td><textarea name="descripcion" rows="10" cols="20"
-						placeholder="Descripción del accidente..."></textarea></td>
+				<td><textarea name="descripcion" rows="10" cols="20"></textarea></td>
 			</tr>
 			
 			<tr>
@@ -55,6 +57,7 @@
 			</tr>
 		</table>
 	</form>
+	<a class="boton" href="${pageContext.request.contextPath}/ReportesAccReadAll">Volver</a>
 	</div>
 	<jsp:include page="../footer.jsp" />
 	<!-- SCRIPT -->

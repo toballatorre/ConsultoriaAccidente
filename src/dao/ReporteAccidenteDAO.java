@@ -16,11 +16,6 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 	private static final String SQL_INSERT = 
 			"INSERT INTO REPORTEACCIDENTE (TIPOACCIDENTE, DIASPERDIDOS, FECHAACCIDENTE, LUGARACCIDENTE, DESCRIPCION, CLIENTE_IDCLIENTE) VALUES (?, ?, ?, ?, ?, ?)";
 			//+ "VALUES ('Laboral', '10', TO_DATE('2020-07-07 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '239-6566 Fringilla Avenue', 'Caida misma altura', '3');"
-
-	//private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
-	//private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE idusuario = ?";
-	//private static final String SQL_READ = "SELECT * FROM usuario WHERE idusuario = ?";
-	//private static final String SQL_READ_BY_USERNAME = "SELECT * FROM usuario WHERE usuario = ?";
 	private static final String SQL_READALL = "select * from reporteaccidente where cliente_idcliente = ?";
 	
 	private static final Conexion con = Conexion.connect();

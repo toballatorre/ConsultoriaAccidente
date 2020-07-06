@@ -9,7 +9,6 @@ import java.util.List;
 import conectar.Conexion;
 import idao.IObjectDao;
 import modelo.ReporteAccidenteDTO;
-import modelo.UsuarioDTO;
 
 public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 

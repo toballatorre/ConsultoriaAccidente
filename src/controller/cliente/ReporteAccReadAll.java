@@ -36,21 +36,15 @@ public class ReporteAccReadAll extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		ReporteAccidenteDAO reportedao = new ReporteAccidenteDAO();
-		System.out.println(reportedao);
-		System.out.println(reportedao.toString());
 		List<ReporteAccidenteDTO> lreportes = new ArrayList<ReporteAccidenteDTO>();
 		int id = (int) request.getSession(false).getAttribute("idCliente");
 		lreportes = reportedao.readAllIdClient(id);
-		System.out.println(lreportes);
 		
 		request.setAttribute("listadoreportes", lreportes);
 		request.getRequestDispatcher("cliente/RegAccidentesClienteReadAll.jsp").forward(request, response);
-		
-		
+				
 	}
 
 	/**

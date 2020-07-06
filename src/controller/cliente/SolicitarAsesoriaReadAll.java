@@ -1,11 +1,19 @@
 package controller.cliente;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.ReporteAccidenteDAO;
+import dao.SolicitudAsesoriaDAO;
+import modelo.ReporteAccidenteDTO;
+import modelo.SolicitudAsesoriaDTO;
 
 /**
  * Servlet implementation class SolicitarAsesoriaReadAll
@@ -26,8 +34,14 @@ public class SolicitarAsesoriaReadAll extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		SolicitudAsesoriaDAO solicituddao = new SolicitudAsesoriaDAO();
+		List<SolicitudAsesoriaDTO> lsolicitudes = new ArrayList<SolicitudAsesoriaDTO>();
+		int id = (int) request.getSession(false).getAttribute("idCliente");
+		lsolicitudes = solicituddao.readAllIdClient(id);
+		
+		request.setAttribute("listadosolicitudes", lsolicitudes);
+		request.getRequestDispatcher("cliente/SolicitudAsesoriaClienteReadAll.jsp").forward(request, response);
 	}
 
 	/**

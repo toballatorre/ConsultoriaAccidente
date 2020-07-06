@@ -1,12 +1,14 @@
 package modelo;
 
+import java.sql.Date;
+
 public class ReporteAccidenteDTO {
 	
 	/* ATRIBUTOS */
 	private int idReporte;
 	private String tipoAccidente;
 	private int diasPerdidos;
-	private String fechaAccidente;
+	private Date fechaAccidente;
 	private String lugarAccidente;
 	private String descripcion;
 	private int pkIdCliente;
@@ -16,7 +18,7 @@ public class ReporteAccidenteDTO {
 	}
 	
 	/* Todos los campos */
-	public ReporteAccidenteDTO(int idReporte, String tipoAccidente, int diasPerdidos, String fechaAccidente,
+	public ReporteAccidenteDTO(int idReporte, String tipoAccidente, int diasPerdidos, Date fechaAccidente,
 			String lugarAccidente, String descripcion, int pkIdCliente) {
 		this.idReporte = idReporte;
 		this.tipoAccidente = tipoAccidente;
@@ -27,7 +29,7 @@ public class ReporteAccidenteDTO {
 		this.pkIdCliente = pkIdCliente;
 	}
 	/* Sin el campo id */
-	public ReporteAccidenteDTO(String tipoAccidente, int diasPerdidos, String fechaAccidente, String lugarAccidente,
+	public ReporteAccidenteDTO(String tipoAccidente, int diasPerdidos, Date fechaAccidente, String lugarAccidente,
 			String descripcion, int pkIdCliente) {
 		this.tipoAccidente = tipoAccidente;
 		this.diasPerdidos = diasPerdidos;
@@ -62,11 +64,11 @@ public class ReporteAccidenteDTO {
 		this.diasPerdidos = diasPerdidos;
 	}
 
-	public String getFechaAccidente() {
+	public Date getFechaAccidente() {
 		return fechaAccidente;
 	}
 
-	public void setFechaAccidente(String fechaAccidente) {
+	public void setFechaAccidente(Date fechaAccidente) {
 		this.fechaAccidente = fechaAccidente;
 	}
 

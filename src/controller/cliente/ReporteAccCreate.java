@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ReporteAccidenteDAO;
 import modelo.ReporteAccidenteDTO;
+import utilidades.FechaSQL;
 
 /**
  * Servlet implementation class ReporteAccCreate
@@ -39,12 +40,15 @@ public class ReporteAccCreate extends HttpServlet {
 		
 		String tipoAccidente = request.getParameter("tipoAccidente");
 		int diasPerdidos = (Integer.parseInt(request.getParameter("diasPerdidos")));
+		
 		String fechaAccidente = request.getParameter("fechaAccidente");
+		java.sql.Date sqlFechaAccidente = new FechaSQL().toSQL(fechaAccidente); // convierte la fecha a formato compatible con SQL
+		
 		String lugarAccidente = request.getParameter("lugarAccidente");
 		String descripcion = request.getParameter("descripcion");
 		int idCliente = (Integer.parseInt(request.getParameter("idCliente")));
 
-		ReporteAccidenteDTO reporte = new ReporteAccidenteDTO(tipoAccidente, diasPerdidos, fechaAccidente, lugarAccidente, descripcion, idCliente);
+		ReporteAccidenteDTO reporte = new ReporteAccidenteDTO(tipoAccidente, diasPerdidos, sqlFechaAccidente, lugarAccidente, descripcion, idCliente);
 		ReporteAccidenteDAO reportedao = new ReporteAccidenteDAO();
 		boolean agregar = reportedao.create(reporte);
 		

@@ -14,7 +14,7 @@ import modelo.ReporteAccidenteDTO;
 public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 
 	private static final String SQL_INSERT = 
-			"INSERT INTO REPORTEACCIDENTE (TIPOACCIDENTE, DIASPERDIDOS, FECHAACCIDENTE, LUGARACCIDENTE, DESCRIPCION, CLIENTE_IDCLIENTE) VALUES ('?', '?', TO_DATE('? 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '?', '?', '?')";
+			"INSERT INTO REPORTEACCIDENTE (TIPOACCIDENTE, DIASPERDIDOS, FECHAACCIDENTE, LUGARACCIDENTE, DESCRIPCION, CLIENTE_IDCLIENTE) VALUES (?, ?, ?, ?, ?, ?)";
 			//+ "VALUES ('Laboral', '10', TO_DATE('2020-07-07 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '239-6566 Fringilla Avenue', 'Caida misma altura', '3');"
 
 	//private static final String SQL_DELETE = "DELETE FROM usuario WHERE idusuario = ?";
@@ -42,7 +42,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 			res = ps.executeQuery();
 			
 			while(res.next()) {
-				i = new ReporteAccidenteDTO(res.getInt("idReporte"), res.getString("tipoAccidente"), res.getInt("diasPerdidos"), res.getString("fechaAccidente"), res.getString("lugarAccidente"),res.getString("descripcion"), res.getInt("pkIdCliente"));
+				i = new ReporteAccidenteDTO(res.getInt("idReporte"), res.getString("tipoAccidente"), res.getInt("diasPerdidos"), res.getDate("fechaAccidente"), res.getString("lugarAccidente"),res.getString("descripcion"), res.getInt("pkIdCliente"));
 			}
 		} catch (SQLException e) {
 			System.out.println("Error: ReporteAccidenteDAO read(Object key)");
@@ -68,7 +68,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 			ps = con.getConection().prepareStatement(SQL_INSERT);
 			ps.setString(1, o.getTipoAccidente());
 			ps.setInt(2, o.getDiasPerdidos());
-			ps.setString(3, o.getFechaAccidente());
+			ps.setDate(3, o.getFechaAccidente());
 			ps.setString(4, o.getLugarAccidente());
 			ps.setString(5, o.getDescripcion());
 			ps.setInt(6, o.getPkIdCliente());
@@ -114,7 +114,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 			res = ps.executeQuery();
 			
 			while(res.next()) {
-				listareportes.add(new ReporteAccidenteDTO(res.getInt("IDREPORTE"), res.getString("TIPOACCIDENTE"), res.getInt("DIASPERDIDOS"), res.getString("FECHAACCIDENTE"), res.getString("LUGARACCIDENTE"),res.getString("DESCRIPCION"), res.getInt("CLIENTE_IDCLIENTE")));
+				listareportes.add(new ReporteAccidenteDTO(res.getInt("IDREPORTE"), res.getString("TIPOACCIDENTE"), res.getInt("DIASPERDIDOS"), res.getDate("FECHAACCIDENTE"), res.getString("LUGARACCIDENTE"),res.getString("DESCRIPCION"), res.getInt("CLIENTE_IDCLIENTE")));
 			}
 			return listareportes;
 		} catch (SQLException e) {

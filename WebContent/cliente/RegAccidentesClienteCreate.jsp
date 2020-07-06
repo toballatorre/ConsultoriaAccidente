@@ -8,6 +8,9 @@
 	<meta charset="ISO-8859-1">
 	<title>Crear Registro Accidente</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/js/jqueryUi/jquery-ui.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/js/jqueryUi/jquery-ui.structure.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/js/jqueryUi/jquery-ui.theme.css">
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -33,7 +36,7 @@
 			</tr>
 			<tr>
 				<td>Fecha del Acciendente</td>	
-				<td><input type="text" name="fechaAccidente" placeholder="${fechaAhora}" required></td>
+				<td><input type="text" name="fechaAccidente" id="fecha" placeholder="${fechaAhora}" required readonly></td>
 			</tr>
 			<tr>
 				<td>Dirección del lugar del accidente</td>
@@ -54,5 +57,14 @@
 	</form>
 	</div>
 	<jsp:include page="../footer.jsp" />
+	<!-- SCRIPT -->
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jqueryUi/external/jquery/jquery.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jqueryUi/jquery-ui.js"></script>
+	<!-- SCRIPT DATEPIKER -->
+	<script type="text/javascript">
+		$("#fecha").datepicker({
+			dateFormat: "dd-mm-yy"
+		});
+	</script>
 </body>
 </html>

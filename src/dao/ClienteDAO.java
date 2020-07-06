@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.catalina.Session;
-
 import conectar.Conexion;
 import idao.IObjectDao;
 import modelo.ClienteDTO;

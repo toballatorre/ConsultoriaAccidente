@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ReporteAccidenteDAO;
-import dao.UsuarioDAO;
 import modelo.ReporteAccidenteDTO;
-import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class ReporteAccCreate

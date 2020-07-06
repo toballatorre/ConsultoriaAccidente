@@ -1,3 +1,6 @@
+/**
+ * Servlet implementation class ReportesListar
+ */
 package controller.cliente;
 
 import java.io.IOException;

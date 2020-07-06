@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ClienteDAO;
 import dao.UsuarioDAO;
+import modelo.ClienteDTO;
 import modelo.UsuarioDTO;
 
 
@@ -46,6 +48,9 @@ public class ValidarLogin extends HttpServlet {
 		System.out.println(user);
 		System.out.println(pass);
 		
+		
+		
+		
 		if (uDTO != null) {
 			System.out.println("Activo: " + uDTO.getActivo());
 			if(uDTO.getActivo().equals("1")) {
@@ -58,6 +63,15 @@ public class ValidarLogin extends HttpServlet {
 				case "cliente":
 					sesion.setAttribute("tipoUsuario", "cliente");
 					sesion.setAttribute("idUsuario", uDTO.getIdusuario());
+					
+					ClienteDAO cDAO = new ClienteDAO();
+					ClienteDTO cDTO;
+					cDTO = cDAO.read(uDTO.getIdusuario());
+					System.out.println("idUsuario"+uDTO.getIdusuario());
+					System.out.println("idCliente"+cDTO.getIdCliente());
+					sesion.setAttribute("idCliente", cDTO.getIdCliente());
+					sesion.setAttribute("nombreCliente", cDTO.getNombreEmpresa());
+					
 					request.getRequestDispatcher("AreaCliente.jsp").forward(request, response);
 					break;
 				case "admin":

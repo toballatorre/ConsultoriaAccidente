@@ -1,66 +1,71 @@
 package modelo;
 
 public class ClienteDTO {
-	
+
+	/* ATRIBUTOS */
 	private int idCliente;
-	private String NombreEmpresa;
-	private int RutEmpresa;
-	private int idUsuarioPK;
-	
-	/* CONSTRUCTOR */
+	private String nombreEmpresa;
+	private String rutEmpresa;
+	private int idUsuario;
+
+	/*bob el CONSTRUCTOR */
+
 	public ClienteDTO() {
+		super();
 	}
-	
-	public ClienteDTO(int idCliente, String nombreEmpresa, int rutEmpresa, int idUsuarioPK) {
+	/* CON id*/	
+	public ClienteDTO(int idCliente, String nombreEmpresa, String rutEmpresa, int idUsuario) {
+		super();
 		this.idCliente = idCliente;
-		NombreEmpresa = nombreEmpresa;
-		RutEmpresa = rutEmpresa;
-		this.idUsuarioPK = idUsuarioPK;
-	}
-	
-	public ClienteDTO(int idCliente, String nombreEmpresa) {
-		this.idCliente = idCliente;
-		NombreEmpresa = nombreEmpresa;
+		this.nombreEmpresa = nombreEmpresa;
+		this.rutEmpresa = rutEmpresa;
+		this.idUsuario = idUsuario;
 	}
 
-	/* GET AND SET */
+	public ClienteDTO(String nombreEmpresa, String rutEmpresa, int idUsuario) {
+		super();
+		this.nombreEmpresa = nombreEmpresa;
+		this.rutEmpresa = rutEmpresa;
+		this.idUsuario = idUsuario;
+	}
+  /* Agregué este constructor sólo para obtener la id del cliente y su nombre y listarlo
+  en el select option de ingresr actividad*/
+  public ClienteDTO(int idCliente, String nombreEmpresa) {
+		this.idCliente = idCliente;
+		NombreEmpresa = nombreEmpresa;
+	}
+	/*GET SET, yo solo quiero ser del JET SET*/
 	public int getIdCliente() {
 		return idCliente;
 	}
-
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
-
 	public String getNombreEmpresa() {
-		return NombreEmpresa;
+		return nombreEmpresa;
 	}
-
 	public void setNombreEmpresa(String nombreEmpresa) {
-		NombreEmpresa = nombreEmpresa;
+		this.nombreEmpresa = nombreEmpresa;
 	}
-
-	public int getRutEmpresa() {
-		return RutEmpresa;
+	public String getRutEmpresa() {
+		return rutEmpresa;
 	}
-
-	public void setRutEmpresa(int rutEmpresa) {
-		RutEmpresa = rutEmpresa;
+	public void setRutEmpresa(String rutEmpresa) {
+		this.rutEmpresa = rutEmpresa;
 	}
-
-	public int getIdUsuarioPK() {
-		return idUsuarioPK;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
-
-	public void setIdUsuarioPK(int idUsuarioPK) {
-		this.idUsuarioPK = idUsuarioPK;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-
+	
 	/* TO STRING */
+  // En ocaciones es útil
 	@Override
 	public String toString() {
 		return "ClienteDTO [idCliente=" + idCliente + ", NombreEmpresa=" + NombreEmpresa + ", RutEmpresa=" + RutEmpresa
 				+ ", idUsuarioPK=" + idUsuarioPK + "]";
 	}
-		
+
 }

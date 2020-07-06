@@ -11,8 +11,9 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Cliente</h1>
-	<jsp:include page="../MenuAdmin.jsp" />
+	<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
+
+	<jsp:include page="../MenuCliente.jsp" />
 	<div class="contenido">
 		<h1>Registros de Accidentes</h1>
 		<div class="mensajealerta">
@@ -24,30 +25,27 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Tipo Accidente</th>
-				<th>Dias perdidos</th>
 				<th>Fecha accidente</th>
 				<th>Lugar</th>
+				<th>Tipo Accidente</th>
+				<th>Dias perdidos</th>
 				<th>Descripcion</th>
 			</tr>
 	
 			<c:forEach items="${listadoreportes}" var="reporte">
 				<tr>
-					<td>${reporte.getidReporte()}</td>
-					<td>${reporte.gettipoAccidente()}</td>
-					<td>${reporte.getdiasPerdidos()}</td>
-					<td>${reporte.getfechaAccidente()}</td>
-					<td>${reporte.getlugarAccidente()}</td>
-					<td>${reporte.getdescripcion()}</td>
-					<td><!-- <a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a> -->
-						<a href="#">Editar</a>
-					</td>
+					<td>${reporte.getIdReporte()}</td>
+					<td>${reporte.getFechaAccidente()}</td>
+					<td>${reporte.getLugarAccidente()}</td>
+					<td>${reporte.getTipoAccidente()}</td>
+					<td>${reporte.getDiasPerdidos()}</td>
+					<td>${reporte.getDescripcion()}</td>
 				</tr>
 			</c:forEach>
 	
 		</table>
 	
-		<a href="${pageContext.request.contextPath}/ReporteCreate">Crear nuevo registro</a>
+		<a class="boton" href="${pageContext.request.contextPath}/ReporteAccCreate">Crear nuevo registro</a>
 	</div>
 <jsp:include page="../footer.jsp" />
 </body>

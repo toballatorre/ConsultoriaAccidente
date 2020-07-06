@@ -10,7 +10,7 @@ body {
 }
 
 form {
-	width: 150px;
+	width: fit-content;
 	/* 	padding: 20px; */
 	margin: auto;
 	/* 	background-color: #ffffff; */

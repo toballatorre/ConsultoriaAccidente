@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import idao.IObjectDao;
+import modelo.ClienteDTO;
 //import modelo.LoginDTO;
 import modelo.UsuarioDTO;
 import conectar.Conexion;
@@ -18,7 +19,9 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 	private static final String SQL_UPDATE = "UPDATE USUARIO  SET USUARIO = ?, TIPOUSUARIO = ?, CLAVE = ?, MAIL = ?, ACTIVO = ? WHERE idusuario = ?";
 	private static final String SQL_READ = "SELECT * FROM usuario WHERE idusuario = ?";
 	private static final String SQL_READ_BY_USERNAME = "SELECT * FROM usuario WHERE usuario = ?";
+	private static final String SQL_READ_BY_USERTYPE = "SELECT usuario, idusuario FROM usuario WHERE tipousuario = ? AND activo = 1";
 	private static final String SQL_READALL = "SELECT * FROM usuario";
+	private static final String SQL_READCLIENTE = "SELECT idcliente, nombreempresa FROM usuario INNER JOIN cliente ON usuario.idusuario = cliente.usuario_idusuario WHERE activo = '1'";
 	
 	private static final Conexion con = Conexion.connect();
 	/**
@@ -196,11 +199,60 @@ public class UsuarioDAO implements IObjectDao<UsuarioDTO> {
 		}		
 		return i;
 	}
-	/*
-	@Override
-	public List<UsuarioDTO> readAll(Object key) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Metodo para buscar sólo los tipos de usuarios ingresados y activos
+	 * @param tipo
+	 * @return
+	 */
+	public List<UsuarioDTO> readUserType(String tipo) {
+		
+		ArrayList<UsuarioDTO> listaUsuarios = new ArrayList<UsuarioDTO>();
+		
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+			ps = con.getConection().prepareStatement(SQL_READ_BY_USERTYPE);
+			ps.setString(1, tipo);
+			
+			res = ps.executeQuery();
+			
+			while(res.next())
+				listaUsuarios.add(new UsuarioDTO(res.getInt("idusuario"), res.getString("usuario")));
+			
+		} catch (SQLException e) {
+			System.out.println("Error: UsuarioDAO readUserType()");
+			e.printStackTrace();
+		} finally {
+			con.closeConnection();
+		}
+		
+		return listaUsuarios;
 	}
-*/
+	
+	public List<ClienteDTO> readCliente(){
+		
+		ArrayList<ClienteDTO> listaClientes = new ArrayList<ClienteDTO>();
+		
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+		
+			ps = con.getConection().prepareStatement(SQL_READCLIENTE);
+			res = ps.executeQuery();
+			
+			while(res.next())
+				listaClientes.add(new ClienteDTO(res.getInt("idcliente"), res.getString("nombreempresa")));
+			
+		} catch (SQLException e) {
+			System.out.println("Error: UsuarioDAO readCliente()");
+			e.printStackTrace();
+		} finally {
+			con.closeConnection();
+		}
+		
+		return listaClientes;
+		
+	}
 }

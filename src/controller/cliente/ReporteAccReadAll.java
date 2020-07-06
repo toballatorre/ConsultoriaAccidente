@@ -16,7 +16,11 @@ import modelo.ReporteAccidenteDTO;
 /**
  * Servlet implementation class ReportesListar
  */
+<<<<<<< HEAD
 @WebServlet("/ReporteAccReadAll")
+=======
+@WebServlet("/ReportesAccReadAll")
+>>>>>>> toballatorre05
 public class ReporteAccReadAll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +37,7 @@ public class ReporteAccReadAll extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		ReporteAccidenteDAO reportedao = new ReporteAccidenteDAO();
 		System.out.println(reportedao);

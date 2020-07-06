@@ -10,7 +10,11 @@ body {
 }
 
 form {
+<<<<<<< HEAD
 	/*width: 150px;*/
+=======
+	width: fit-content;
+>>>>>>> toballatorre05
 	/* 	padding: 20px; */
 	margin: auto;
 	/* 	background-color: #ffffff; */

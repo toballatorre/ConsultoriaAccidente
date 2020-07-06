@@ -9,6 +9,10 @@ import java.util.List;
 import conectar.Conexion;
 import idao.IObjectDao;
 import modelo.ReporteAccidenteDTO;
+<<<<<<< HEAD
+=======
+
+>>>>>>> toballatorre05
 
 public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 
@@ -33,7 +37,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		
 		PreparedStatement ps;
 		ResultSet res;
-		/*
+		
 		try {
 			ps = con.getConection().prepareStatement(SQL_READALL);
 			ps.setString(1, key.toString());
@@ -49,7 +53,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		}finally {
 			con.closeConnection();
 		}
-		*/		
+				
 		return i;
 	}
 
@@ -118,7 +122,11 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 			return listareportes;
 		} catch (SQLException e) {
 			
+<<<<<<< HEAD
 			System.out.println("Error: ReporteAccidenteDAO List<Obj> readAllIdClient(Object key)");
+=======
+			System.out.println("Error: ReporteAccidenteDAO List<Obj> readAllClient(Object key)");
+>>>>>>> toballatorre05
 			e.printStackTrace();
 		} finally {
 			con.closeConnection();

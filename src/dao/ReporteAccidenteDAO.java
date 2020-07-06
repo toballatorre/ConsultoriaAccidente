@@ -9,10 +9,7 @@ import java.util.List;
 import conectar.Conexion;
 import idao.IObjectDao;
 import modelo.ReporteAccidenteDTO;
-<<<<<<< HEAD
-=======
 
->>>>>>> toballatorre05
 
 public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 
@@ -122,11 +119,8 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 			return listareportes;
 		} catch (SQLException e) {
 			
-<<<<<<< HEAD
 			System.out.println("Error: ReporteAccidenteDAO List<Obj> readAllIdClient(Object key)");
-=======
-			System.out.println("Error: ReporteAccidenteDAO List<Obj> readAllClient(Object key)");
->>>>>>> toballatorre05
+      
 			e.printStackTrace();
 		} finally {
 			con.closeConnection();

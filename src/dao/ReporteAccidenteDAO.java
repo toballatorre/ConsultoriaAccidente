@@ -9,7 +9,7 @@ import java.util.List;
 import conectar.Conexion;
 import idao.IObjectDao;
 import modelo.ReporteAccidenteDTO;
-import modelo.UsuarioDTO;
+
 
 public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 
@@ -34,7 +34,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		
 		PreparedStatement ps;
 		ResultSet res;
-		/*
+		
 		try {
 			ps = con.getConection().prepareStatement(SQL_READALL);
 			ps.setString(1, key.toString());
@@ -50,7 +50,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		}finally {
 			con.closeConnection();
 		}
-		*/		
+				
 		return i;
 	}
 
@@ -120,6 +120,7 @@ public class ReporteAccidenteDAO implements IObjectDao<ReporteAccidenteDTO>{
 		} catch (SQLException e) {
 			
 			System.out.println("Error: ReporteAccidenteDAO List<Obj> readAllIdClient(Object key)");
+      
 			e.printStackTrace();
 		} finally {
 			con.closeConnection();

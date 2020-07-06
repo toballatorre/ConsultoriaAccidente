@@ -28,6 +28,12 @@ public class ClienteDTO {
 		this.rutEmpresa = rutEmpresa;
 		this.idUsuario = idUsuario;
 	}
+  /* Agregué este constructor sólo para obtener la id del cliente y su nombre y listarlo
+  en el select option de ingresr actividad*/
+  public ClienteDTO(int idCliente, String nombreEmpresa) {
+		this.idCliente = idCliente;
+		NombreEmpresa = nombreEmpresa;
+	}
 	/*GET SET, yo solo quiero ser del JET SET*/
 	public int getIdCliente() {
 		return idCliente;
@@ -54,6 +60,12 @@ public class ClienteDTO {
 		this.idUsuario = idUsuario;
 	}
 	
-	
+	/* TO STRING */
+  // En ocaciones es útil
+	@Override
+	public String toString() {
+		return "ClienteDTO [idCliente=" + idCliente + ", NombreEmpresa=" + NombreEmpresa + ", RutEmpresa=" + RutEmpresa
+				+ ", idUsuarioPK=" + idUsuarioPK + "]";
+	}
 
 }

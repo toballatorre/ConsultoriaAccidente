@@ -31,7 +31,16 @@ public class UsuarioDTO {
 		this.mail = mail;
 		this.activo = activo;
 	}
-
+	
+	/**
+	 * Constructos sólo para traer dos datos necesarios para usarlo en el formulario para identificar el usuario con su nombre e identificadr único (id)
+	 * @param idusuario
+	 * @param usuario
+	 */
+	public UsuarioDTO(int idusuario, String usuario) {
+		this.idusuario = idusuario;
+		this.usuario = usuario;
+	}
 
 	/*GET SET, yo solo quiero ser del JET SET*/
 	public int getIdusuario() {

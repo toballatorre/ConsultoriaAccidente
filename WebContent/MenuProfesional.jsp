@@ -1,6 +1,6 @@
 <div class="menu">
 	<h3>Menu Profesional</h3>
-	<a href="#">Crear Capacitacion</a>
+	<a href="${pageContext.request.contextPath}/ListarCapacitaciones">Capacitación</a>
 	<a href="#">Planificar visita</a>
 	<a href="#">Revisar cliente</a>
 	<a href="#">Crear caso asesoria</a>

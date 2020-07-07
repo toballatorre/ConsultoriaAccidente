@@ -12,10 +12,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
 	<div class="contenido">
-		<h1>Información de Profesionales</h1>
+		<h1>Vista Administrador</h1>
+		<h2>Información de Profesionales</h2>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />

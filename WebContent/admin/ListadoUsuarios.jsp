@@ -12,10 +12,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
 	<div class="contenido">
-		<h1>Listado de Usuarios</h1>
+		<h1>Vista Administrador</h1>
+		<h2>Listado de Usuarios</h2>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />
@@ -48,8 +48,7 @@
 	
 		</table>
 	
-		<a href="${pageContext.request.contextPath}/CrearUsuario">Creación
-			de usuarios</a>
+		<a href="${pageContext.request.contextPath}/CrearUsuario"><i class="far fa-plus-square"></i> Crear Usuario</a>
 	</div>
 <jsp:include page="../footer.jsp" />
 </body>

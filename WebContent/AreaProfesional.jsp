@@ -10,9 +10,10 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<h1>Vista Profesional Prevencionista</h1>
 	<jsp:include page="MenuProfesional.jsp" />
-
+	<div class="contenido">
+		<h1>Vista Profesional Prevencionista</h1>
+	</div>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

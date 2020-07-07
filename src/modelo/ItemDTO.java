@@ -5,30 +5,23 @@ public class ItemDTO {
 	/* ATRIBUTOS */
 	private int idItem;
 	private String concepto;
-	private float precio;
+	private float precioUnitario;
 	private int cantidad;
-	private int idFracturaPK;
+	private int factira_facturaId;
 	
 	/* CONSTRUCTORES */
 	public ItemDTO() {
-		
-	}
-	
-	public ItemDTO(String concepto, float precio, int cantidad) {
-		this.concepto = concepto;
-		this.precio = precio;
-		this.cantidad = cantidad;
 	}
 
-	public ItemDTO(int idItem, String concepto, float precio, int cantidad, int idFracturaPK) {
+	public ItemDTO(int idItem, String concepto, float precioUnitario, int cantidad, int factira_facturaId) {
 		this.idItem = idItem;
 		this.concepto = concepto;
-		this.precio = precio;
+		this.precioUnitario = precioUnitario;
 		this.cantidad = cantidad;
-		this.idFracturaPK = idFracturaPK;
+		this.factira_facturaId = factira_facturaId;
 	}
 
-	/* GET SET */
+	/* GET AND SET */
 	public int getIdItem() {
 		return idItem;
 	}
@@ -45,12 +38,12 @@ public class ItemDTO {
 		this.concepto = concepto;
 	}
 
-	public float getPrecio() {
-		return precio;
+	public float getPrecioUnitario() {
+		return precioUnitario;
 	}
 
-	public void setPrecio(float precio) {
-		this.precio = precio;
+	public void setPrecioUnitario(float precioUnitario) {
+		this.precioUnitario = precioUnitario;
 	}
 
 	public int getCantidad() {
@@ -61,19 +54,19 @@ public class ItemDTO {
 		this.cantidad = cantidad;
 	}
 
-	public int getIdFracturaPK() {
-		return idFracturaPK;
+	public int getFactira_facturaId() {
+		return factira_facturaId;
 	}
 
-	public void setIdFracturaPK(int idFracturaPK) {
-		this.idFracturaPK = idFracturaPK;
+	public void setFactira_facturaId(int factira_facturaId) {
+		this.factira_facturaId = factira_facturaId;
 	}
 
 	@Override
 	public String toString() {
-		return "Item [idItem=" + idItem + ", concepto=" + concepto + ", precio=" + precio + ", cantidad=" + cantidad
-				+ ", idFracturaPK=" + idFracturaPK + "]";
+		return "ItemDTO [idItem=" + idItem + ", concepto=" + concepto + ", precioUnitario=" + precioUnitario
+				+ ", cantidad=" + cantidad + ", factira_facturaId=" + factira_facturaId + "]";
 	}
-		
+			
 }
 

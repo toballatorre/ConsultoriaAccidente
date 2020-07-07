@@ -23,7 +23,7 @@ public class CapacitacionDAO implements IObjectDao<CapacitacionDTO> {
 	private static final String SQL_DELETE = "DELETE FROM capacitacion WHERE idcapacitacion = ?";
 	private static final String SQL_UPDATE = "UPDATE capacitacion SET tema = ?, objetivos = ?, contenidos = ?, recursos = ? WHERE idcapacitacion = ?";
 	private static final String SQL_READ = "SELECT * FROM capacitacion WHERE idcapacitacion = ?";
-	private static final String SQL_READALL = "SELECT * FROM capacitacion";
+	private static final String SQL_READALL = "SELECT * FROM capacitacion;";
 	private static final String SQL_READBYPROF = "SELECT * FROM capacitacion INNER JOIN cliente ON capacitacion.cliente_idcliente = cliente.idcliente WHERE idusuariopro = ?";
 	
 	private static final Conexion con = Conexion.connect();

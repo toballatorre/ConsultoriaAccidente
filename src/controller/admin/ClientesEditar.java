@@ -35,7 +35,7 @@ public class ClientesEditar extends HttpServlet {
 		
 		ClienteDAO clientedao = new ClienteDAO();
 		ClienteDTO cliente = new ClienteDTO();
-		cliente = clientedao.read(idcliente);
+		cliente = clientedao.readCliente(idcliente);
 		
 		request.setAttribute("datoscliente", cliente);
 		request.getRequestDispatcher("admin/ClientesEditar.jsp").forward(request, response);

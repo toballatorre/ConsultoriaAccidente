@@ -11,11 +11,11 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
 
 	<jsp:include page="../MenuCliente.jsp" />
 	<div class="contenido">
-		<h1>Registros de Accidentes</h1>
+	<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
+		<h2>Registros de Accidentes</h2>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />
@@ -45,7 +45,7 @@
 	
 		</table>
 	
-		<a class="boton" href="${pageContext.request.contextPath}/ReporteAccCreate">Crear nuevo registro</a>
+		<a class="boton" href="${pageContext.request.contextPath}/ReporteAccCreate"><i class="fas fa-plus-circle"></i> Crear nuevo registro</a>
 	</div>
 <jsp:include page="../footer.jsp" />
 </body>

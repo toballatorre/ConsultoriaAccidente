@@ -13,10 +13,9 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
+	<jsp:include page="../MenuCliente.jsp" />
+	<div class="contenido">
 		<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
-	
-		<jsp:include page="../MenuCliente.jsp" />
-		<div class="contenido">
 			<h1>Crear solicitud de Asesoria</h1>
 			<div class="mensajealerta">
 				<c:if test="${cumensaje != null}">

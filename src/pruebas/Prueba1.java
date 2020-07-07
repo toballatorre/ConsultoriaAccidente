@@ -1,5 +1,13 @@
 package pruebas;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.FacturaDAO;
+import dao.ItemDAO;
+import modelo.FacturaDTO;
+import modelo.ItemDTO;
+
 public class Prueba1 {
 
 	public static void main(String[] args) {
@@ -37,6 +45,15 @@ public class Prueba1 {
 		UsuarioDTO uDTO = uDAO.readUsername("admin1");
 		System.out.println(uDTO.toString());
 		*/
+		/*
+		FacturaDAO fDAO = new FacturaDAO();
+		FacturaDTO factura =  new FacturaDTO();
+		factura = fDAO.read(13);
+		String f = factura.toString();
+		System.out.println(f);
+		for (ItemDTO i : factura.getListaItem()) {
+			System.out.println(i.toString());
+		}*/
 	}
 
 }

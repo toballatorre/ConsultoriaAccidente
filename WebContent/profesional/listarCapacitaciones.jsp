@@ -10,17 +10,18 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Revisar Actividad Mejora</h1>
 	<jsp:include page="../MenuProfesional.jsp" />
 	
-	<main>
-		<section class="contenido">
+	<div class="contenido">
+		<h1>Vista Profesional</h1>
+		<h2>Listar Capacitaciones</h2>
 			<table>
 				<tr>
-					<th> Tema </th>
-					<th> Fecha </th>
-					<th> Cliente </th>
-					<th></th>
+					<th>Tema </th>
+					<th>Fecha </th>
+					<th>Cliente </th>
+					<th>Detalle</th>
+					<th>Eliminar</th>
 				</tr>
 				<c:forEach items="${listaCap}" var="cap">
 				<tr>
@@ -34,15 +35,15 @@
 							</c:forEach>
 					</td>
 					<td>
-						<a href="DetalleCapacitacion?id=${cap.getIdCapacitacion()}"> Detalle </a>
-						&nbsp;
-						<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}"> Eliminar </a> 
+						<a href="DetalleCapacitacion?id=${cap.getIdCapacitacion()}"><i class="fas fa-info-circle"></i></a>
+					</td>
+					<td>
+						<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}"><i class="fas fa-trash-alt"></i></a> 
 					</td>
 				</tr>
 				</c:forEach>
 			</table>
-		</section>
-	</main>
+		</div>
 	
 	<jsp:include page="../footer.jsp" />
 	

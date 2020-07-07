@@ -11,11 +11,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador: <c:out value='${sessionScope.nombreCliente}'/></h1>
-
 	<jsp:include page="../MenuAdmin.jsp" />
 	<div class="contenido">
-		<h1>Registros de Accidentes</h1>
+	<h1>Vista Administrador: <c:out value='${sessionScope.nombreCliente}'/></h1>
+		<h2>Registros de Accidentes</h2>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />

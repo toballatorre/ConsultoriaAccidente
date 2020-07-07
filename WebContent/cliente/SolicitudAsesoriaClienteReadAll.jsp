@@ -10,11 +10,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
+	<jsp:include page="../MenuCliente.jsp" />
+	<div class="contenido">
 		<h1>Vista Cliente: <c:out value='${sessionScope.nombreCliente}'/></h1>
-	
-		<jsp:include page="../MenuCliente.jsp" />
-		<div class="contenido">
-			<h1>Solicitudes de Asesoria</h1>
+			<h2>Solicitudes de Asesoria</h2>
 			<div class="mensajealerta">
 				<c:if test="${cumensaje != null}">
 					<c:out value="${cumensaje}" />
@@ -39,7 +38,7 @@
 			</c:forEach>
 	
 		</table>
-			<a class="boton" href="${pageContext.request.contextPath}/SolicitarAsesoriaCreate">Solicitar Asesoria</a>
+			<a class="boton" href="${pageContext.request.contextPath}/SolicitarAsesoriaCreate"><i class="fas fa-calendar-alt"></i> Solicitar Asesoria</a>
 			
 			
 		</div>

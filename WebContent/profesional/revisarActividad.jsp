@@ -10,16 +10,18 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Revisar Actividad Mejora</h1>
-	<jsp:include page="../MenuProfesional.jsp" />
-	
-	<main>
-		<section class="contenido">
+		<jsp:include page="../MenuProfesional.jsp" />
+	<div class="contenido">
+		<h1>Vista Profesional</h1>
+		<h2>Revisar Actividad Mejora</h2>
 			<table>
 				<tr>
 					<th>Titulo</th>
 					<th>Fecha</th>
 					<th>Status</th>
+					<th>Eliminar</th>
+					<th>Editar</th>
+					
 				</tr>
 				<c:forEach items="${listaActividades}" var="actividad">
 					<tr>
@@ -27,15 +29,16 @@
 						<td> <c:out value="${actividad.getFechaPlazo()}"/> </td>
 						<td> <c:out value="${actividad.getStatus()}"/> </td>
 						<td>
-							<a href="eliminarActividad?idActividad=${actividad.getIdActividad()}">Eliminar</a>
-							<a href="updateActividad?idActividad=${actividad.getIdActividad()}">Editar</a>
+							<a href="eliminarActividad?idActividad=${actividad.getIdActividad()}"><i class="fas fa-trash-alt"></i></a>
+							</td>
+							<td>
+							<a href="updateActividad?idActividad=${actividad.getIdActividad()}"><i class="fas fa-edit"></i></a>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 		
-		</section>
-	</main>
+		</div>
 	
 	<jsp:include page="../footer.jsp" />
 	

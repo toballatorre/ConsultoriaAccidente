@@ -18,36 +18,33 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
-	
-	<main>
-		<section class="contenido">
-			<table>
-				<tr>
-					<th> Titulo </th>
-					<th> Fecha </th>
-					<th> Status </th>
-					<th> Empresa </th>
-				</tr>
-				<c:forEach items="${lista}" var="actividad">
+	<div class="contenido">
+		<h1>Vista Administrador</h1>
+				<table>
 					<tr>
-						<td> <c:out value="${actividad.getTitulo()}"/> </td>
-						<td> <c:out value="${actividad.getFechaPlazo()}"/> </td>
-						<td> <c:out value="${actividad.getStatus()}"/> </td>
-						<c:forEach items="${listaC}" var="cliente">
-							<c:if test="${actividad.getIdClientePk() == cliente.getIdCliente()}">
-								<td>
-									<c:out value="${cliente.getNombreEmpresa()}"/>								
-								</td>						
-							</c:if>
-						</c:forEach>
-						<td> <a href="DetalleActividad?id=${actividad.getIdActividad()}">Detalle</a> </td>
-					</tr>				
-				</c:forEach>
-			</table>
-		</section>
-	</main>
+						<th> Titulo </th>
+						<th> Fecha </th>
+						<th> Status </th>
+						<th> Empresa </th>
+					</tr>
+					<c:forEach items="${lista}" var="actividad">
+						<tr>
+							<td> <c:out value="${actividad.getTitulo()}"/> </td>
+							<td> <c:out value="${actividad.getFechaPlazo()}"/> </td>
+							<td> <c:out value="${actividad.getStatus()}"/> </td>
+							<c:forEach items="${listaC}" var="cliente">
+								<c:if test="${actividad.getIdClientePk() == cliente.getIdCliente()}">
+									<td>
+										<c:out value="${cliente.getNombreEmpresa()}"/>								
+									</td>						
+								</c:if>
+							</c:forEach>
+							<td> <a href="DetalleActividad?id=${actividad.getIdActividad()}"><i class="fab fa-wpforms"></i></a> </td>
+						</tr>				
+					</c:forEach>
+				</table>
+		</div>
 	
 	<jsp:include page="../footer.jsp" />
 </body>

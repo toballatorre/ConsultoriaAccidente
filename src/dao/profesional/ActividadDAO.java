@@ -23,7 +23,7 @@ public class ActividadDAO implements IObjectDao<ActividadDTO> {
 	
 	private static final String SQL_INSERT = "INSERT INTO actividad (titulo, descripcion, fechaplazo, status, comentario, cliente_idcliente) VALUES(?, ?, ?, ?, ?, ?)";
 	private static final String SQL_DELETE = "DELETE FROM actividad WHERE idactividad = ?";
-	private static final String SQL_UPDATE = "UPDATE actividad SET titulo = ?, descripcion = ?, fechaplazo = ?, status = ?, comentario = ?, cliente_idcliente WHERE idactividad = ?";
+	private static final String SQL_UPDATE = "UPDATE actividad SET titulo = ?, descripcion = ?, status = ?, comentario = ? WHERE idactividad = ?";
 	private static final String SQL_READ = "SELECT * FROM actividad WHERE idactividad = ?";
 	private static final String SQL_READ_BY_CLIENT = "SELECT * FROM actividad WHERE cliente_idcliente = ?";
 	private static final String SQL_READALL = "SELECT * FROM actividad";
@@ -42,7 +42,7 @@ public class ActividadDAO implements IObjectDao<ActividadDTO> {
 		try {
 			
 			ps = con.getConection().prepareStatement(SQL_INSERT);
-			ps.setString(1, o.getDescripcion());
+			ps.setString(1, o.getTitulo());
 			ps.setNString(2, o.getDescripcion());
 			ps.setDate(3, o.getFechaPlazo());
 			ps.setString(4, o.getStatus());
@@ -103,10 +103,9 @@ public class ActividadDAO implements IObjectDao<ActividadDTO> {
 			ps = con.getConection().prepareStatement(SQL_UPDATE);
 			ps.setString(1, o.getTitulo());
 			ps.setString(2, o.getDescripcion());
-			ps.setDate(3, o.getFechaPlazo());
-			ps.setString(4, o.getStatus());
-			ps.setString(5, o.getComentario());
-			ps.setInt(6, o.getIdClientePk());
+			ps.setString(3, o.getStatus());
+			ps.setString(4, o.getComentario());
+			ps.setInt(5, o.getIdActividad());
 			
 			if(ps.executeUpdate() > 0)
 				actualizado = true;

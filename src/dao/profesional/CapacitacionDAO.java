@@ -24,6 +24,7 @@ public class CapacitacionDAO implements IObjectDao<CapacitacionDTO> {
 	//private static final String SQL_UPDATE = "UPDATE capacitacion SET titulo = ?, descripcion = ?, status = ?, comentario = ? WHERE idactividad = ?";
 	private static final String SQL_READ = "SELECT * FROM capacitacion WHERE idcapacitacion = ?";
 	private static final String SQL_READALL = "SELECT * FROM capacitacion";
+	private static final String SQL_READBYPROF = "SELECT * FROM capacitacion INNER JOIN cliente ON capacitacion.cliente_idcliente = cliente.idcliente WHERE idusuariopro = ?";
 	
 	private static final Conexion con = Conexion.connect();
 
@@ -126,6 +127,31 @@ public class CapacitacionDAO implements IObjectDao<CapacitacionDTO> {
 		try {
 			
 			ps = con.getConection().prepareStatement(SQL_READALL);
+			res = ps.executeQuery();
+			
+			while(res.next())
+				listaCapacitacion.add(new CapacitacionDTO(res.getInt("idcapacitacion"), res.getInt("cliente_idcliente"), res.getString("tema"), res.getString("objetivos"), res.getString("contenidos"), res.getString("recursos"), res.getDate("fecha"), res.getInt("idusuariopro")));
+			
+		} catch (SQLException e) {
+			System.out.println("Error: CapacitacionDAO readAll()");
+			e.printStackTrace();
+		} finally {
+			con.closeConnection();
+		}
+		
+		return listaCapacitacion;
+	}
+	
+public List<CapacitacionDTO> readAllByProf(Object key) {
+		
+		ArrayList<CapacitacionDTO> listaCapacitacion = new ArrayList<CapacitacionDTO>();
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+			
+			ps = con.getConection().prepareStatement(SQL_READBYPROF);
+			ps.setString(1, key.toString());
 			res = ps.executeQuery();
 			
 			while(res.next())

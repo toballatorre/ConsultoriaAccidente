@@ -13,7 +13,6 @@
 	<h1>Revisar Actividad Mejora</h1>
 	<jsp:include page="../MenuProfesional.jsp" />
 	
-	<!--  idcapacitacion, cliente_idcliente, tema, objetivos, contenidos, recursos, fecha, idusuariopro -->
 	<main>
 		<section class="contenido">
 			<table>
@@ -34,7 +33,7 @@
 								</c:if>
 							</c:forEach>
 					</td>
-					<td> <a href="#?id=${cap.getIdCapacitacion()}"> Detalle </a> </td>
+					<td> <a href="DetalleCapacitacion?id=${cap.getIdCapacitacion()}"> Detalle </a> </td>
 				</tr>
 				</c:forEach>
 			</table>

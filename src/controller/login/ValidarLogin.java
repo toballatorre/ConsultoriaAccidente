@@ -37,27 +37,25 @@ public class ValidarLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String user = request.getParameter("user");
-		String pass = request.getParameter("pass");
+		//String pass = request.getParameter("pass");
 		
 		UsuarioDAO uDAO = new UsuarioDAO();
 		UsuarioDTO uDTO;
 		
 		uDTO = uDAO.readUsername(user);
-		
+		/*
 		System.out.println(uDTO);
 		System.out.println(user);
 		System.out.println(pass);
-		
-		
-		
-		
+		*/
+
 		if (uDTO != null) {
-			System.out.println("Activo: " + uDTO.getActivo());
+			//System.out.println("Activo: " + uDTO.getActivo());
 			if(uDTO.getActivo().equals("1")) {
 				
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("user", uDTO.getUsuario());
-				System.out.println("Login as: " + user);
+				//System.out.println("Login as: " + user);
 				
 				switch (uDTO.getTipousuario()) {
 				case "cliente":
@@ -67,8 +65,8 @@ public class ValidarLogin extends HttpServlet {
 					ClienteDAO cDAO = new ClienteDAO();
 					ClienteDTO cDTO;
 					cDTO = cDAO.read(uDTO.getIdusuario());
-					System.out.println("idUsuario"+uDTO.getIdusuario());
-					System.out.println("idCliente"+cDTO.getIdCliente());
+					//System.out.println("idUsuario"+uDTO.getIdusuario());
+					//System.out.println("idCliente"+cDTO.getIdCliente());
 					sesion.setAttribute("idCliente", cDTO.getIdCliente());
 					sesion.setAttribute("nombreCliente", cDTO.getNombreEmpresa());
 					

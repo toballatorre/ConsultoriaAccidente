@@ -29,7 +29,7 @@ public class ClientesEditar extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		int idcliente = Integer.parseInt(request.getParameter("idcliente"));
 		System.out.println("Editando cliente: "+idcliente);
 		
@@ -54,7 +54,6 @@ public class ClientesEditar extends HttpServlet {
 		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
 		
 		ClienteDTO cliente = new ClienteDTO(idcliente,nombreempresa, rutempresa,idusuario);
-
 		ClienteDAO clientedao = new ClienteDAO();
 		boolean editar = clientedao.update(cliente);
 		

@@ -8,6 +8,8 @@
 	<meta charset="ISO-8859-1">
 	<title>Listado de Clientes</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
+	<script src="https://kit.fontawesome.com/0a0085a95e.js" crossorigin="anonymous"></script>
+	
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -25,7 +27,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Nombre Empresa</th>
-				<th>Editar Info</th>
+				<th>Información</th>
 				<th>Accidentabilidad</th>
 				
 			</tr>
@@ -34,8 +36,8 @@
 				<tr>
 					<td>${cliente.getIdCliente()}</td>
 					<td>${cliente.getNombreEmpresa()}</td>
-					<td><a href="${pageContext.request.contextPath}/ClientesEditar?idcliente=${cliente.getIdCliente()}">Editar</a></td>
-					<td></td>
+					<td><a href="${pageContext.request.contextPath}/ClientesEditar?idcliente=${cliente.getIdCliente()}"><i class="fab fa-wpforms"></i></a></td>
+					<td><a href="${pageContext.request.contextPath}/AccClienteListar?idcliente=${cliente.getIdCliente()}"><i class="fas fa-user-injured"></i></a></td>
 					
 					<td></td>
 				</tr>

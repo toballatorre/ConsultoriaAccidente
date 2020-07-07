@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.UsuarioDAO;
 import modelo.ClienteDTO;
-import modelo.UsuarioDTO;
 
 /**
  * Servlet implementation class ClientesListar

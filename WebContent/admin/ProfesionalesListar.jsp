@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Listado de Usuarios</title>
+	<title>Listado de Profesionales</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css">
 	<script src="https://kit.fontawesome.com/0a0085a95e.js" crossorigin="anonymous"></script>
 </head>
@@ -15,7 +15,7 @@
 	<h1>Vista Administrador</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
 	<div class="contenido">
-		<h1>Listado de Usuarios</h1>
+		<h1>Información de Profesionales</h1>
 		<div class="mensajealerta">
 			<c:if test="${cumensaje != null}">
 				<c:out value="${cumensaje}" />
@@ -24,32 +24,26 @@
 	
 		<table>
 			<tr>
-				<th>ID</th>
-				<th>Usuario</th>
-				<th>TipoUsuario</th>
-				<th>Clave</th>
-				<th>Mail</th>
-				<th>Activo</th>
+				<th>IdEmpleado</th>
+				<th>Nombre</th>
+				<th>IdUsuario</th>
+				<th>Celular</th>
+				<th>Editar</th>
 			</tr>
 	
-			<c:forEach items="${listadousuarios}" var="user">
+			<c:forEach items="${listadoprofesionales}" var="prof">
 				<tr>
-					<td>${user.getIdusuario()}</td>
-					<td>${user.getUsuario()}</td>
-					<td>${user.getTipousuario()}</td>
-					<td>${user.getClave()}</td>
-					<td>${user.getMail()}</td>
-					<td>${user.getActivo()}</td>
-					<td><!-- <a href="${pageContext.request.contextPath}/EliminarUsuario?id=${user.getIdusuario()}">Eliminar</a> -->
-						<a href="${pageContext.request.contextPath}/EditarUsuario?id=${user.getIdusuario()}"><i class="far fa-edit"></i></a>
-					</td>
+					<td>${prof.getIdempleado()}</td>
+					<td>${prof.getNombre()}</td>
+					<td>${prof.getIdusuario()}</td>
+					<td>${prof.getCelular()}</td>
+					<td><a href="${pageContext.request.contextPath}/ProfEditar?idemp=${prof.getIdempleado()}"><i class="far fa-edit"></i></a></td>
 				</tr>
 			</c:forEach>
 	
 		</table>
 	
-		<a href="${pageContext.request.contextPath}/CrearUsuario">Creación
-			de usuarios</a>
+
 	</div>
 <jsp:include page="../footer.jsp" />
 </body>

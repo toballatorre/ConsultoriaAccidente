@@ -10,7 +10,8 @@ import idao.IObjectDao;
 import modelo.ClienteDTO;
 
 public class ClienteDAO implements IObjectDao<ClienteDTO> {
-	private static final String SQL_READ = "SELECT * FROM cliente WHERE USUARIO_IDUSUARIO = ?";
+	private static final String SQL_READ = "SELECT * FROM cliente WHERE IDCLIENTE = ?";
+	private static final String SQL_UPDATE = "UPDATE cliente SET NOMBREEMPRESA = ?, RUTEMPRESA = ? ,USUARIO_IDUSUARIO = ? WHERE IDCLIENTE = ?";
 	
 	private static final Conexion con = Conexion.connect();
 
@@ -28,8 +29,33 @@ public class ClienteDAO implements IObjectDao<ClienteDTO> {
 
 	@Override
 	public boolean update(ClienteDTO o) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean actualizado = false;
+		PreparedStatement ps;
+		
+		try {
+			ps = con.getConection().prepareStatement(SQL_UPDATE);
+			ps.setString(1, o.getNombreEmpresa());
+			ps.setString(2, o.getRutEmpresa());
+			ps.setInt(3, o.getIdUsuario());
+			ps.setInt(4, o.getIdCliente());
+			System.out.println(o.getNombreEmpresa());
+			System.out.println(o.getRutEmpresa());
+			System.out.println(o.getIdCliente());
+			System.out.println(o.getIdUsuario());
+					
+			if(ps.executeUpdate() > 0) {
+				actualizado = true;
+			}
+		}catch (Exception e) {
+			System.out.println("Error: ClienteDAO update()");
+			e.printStackTrace();
+			
+		}finally {
+			con.closeConnection();
+		}
+		
+		return actualizado;
+	
 	}
 
 	@Override

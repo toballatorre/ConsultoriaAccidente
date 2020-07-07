@@ -25,8 +25,8 @@
 			<tr>
 				<th>ID</th>
 				<th>Nombre Empresa</th>
-				<th>Accidentabilidad</th>
 				<th>Editar Info</th>
+				<th>Accidentabilidad</th>
 				
 			</tr>
 	
@@ -34,7 +34,7 @@
 				<tr>
 					<td>${cliente.getIdCliente()}</td>
 					<td>${cliente.getNombreEmpresa()}</td>
-					<td></td>
+					<td><a href="${pageContext.request.contextPath}/ClientesEditar?idcliente=${cliente.getIdCliente()}">Editar</a></td>
 					<td></td>
 					
 					<td></td>

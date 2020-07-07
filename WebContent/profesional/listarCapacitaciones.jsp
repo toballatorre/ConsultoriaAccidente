@@ -33,7 +33,11 @@
 								</c:if>
 							</c:forEach>
 					</td>
-					<td> <a href="DetalleCapacitacion?id=${cap.getIdCapacitacion()}"> Detalle </a> </td>
+					<td>
+						<a href="DetalleCapacitacion?id=${cap.getIdCapacitacion()}"> Detalle </a>
+						&nbsp;
+						<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}"> Eliminar </a> 
+					</td>
 				</tr>
 				</c:forEach>
 			</table>

@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<a href="#?id=${cap.getIdCapacitacion()}">Editar</a>
+					<a href="ActualizarCapacitacion?id=${cap.getIdCapacitacion()}">Editar</a>
 					<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}">Eliminar</a>
 				</td>
 			</tr>

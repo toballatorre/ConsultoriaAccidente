@@ -21,7 +21,7 @@ public class CapacitacionDAO implements IObjectDao<CapacitacionDTO> {
 	
 	private static final String SQL_INSERT = "INSERT INTO capacitacion (idcapacitacion, cliente_idcliente, tema, objetivos, contenidos, recursos, fecha, idusuariopro) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String SQL_DELETE = "DELETE FROM capacitacion WHERE idcapacitacion = ?";
-	//private static final String SQL_UPDATE = "UPDATE capacitacion SET titulo = ?, descripcion = ?, status = ?, comentario = ? WHERE idactividad = ?";
+	private static final String SQL_UPDATE = "UPDATE capacitacion SET tema = ?, objetivos = ?, contenidos = ?, recursos = ? WHERE idcapacitacion = ?";
 	private static final String SQL_READ = "SELECT * FROM capacitacion WHERE idcapacitacion = ?";
 	private static final String SQL_READALL = "SELECT * FROM capacitacion";
 	private static final String SQL_READBYPROF = "SELECT * FROM capacitacion INNER JOIN cliente ON capacitacion.cliente_idcliente = cliente.idcliente WHERE idusuariopro = ?";
@@ -85,8 +85,31 @@ public class CapacitacionDAO implements IObjectDao<CapacitacionDTO> {
 
 	@Override
 	public boolean update(CapacitacionDTO o) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		boolean actualizado = false;
+		
+		PreparedStatement ps;
+		
+		try {
+			//tema = ?, objetivos = ?, contenidos = ?, recuros = ? WHERE idcapacitacion = ?
+			ps = con.getConection().prepareStatement(SQL_UPDATE);
+			ps.setString(1, o.getTema());
+			ps.setString(2, o.getObjetivos());
+			ps.setString(3, o.getContenidos());
+			ps.setString(4, o.getRecursos());
+			ps.setInt(5, o.getIdCapacitacion());
+			
+			if (ps.execute())
+				actualizado = true;
+			
+		} catch (SQLException e) {
+			System.out.println("Error: CapacitacionDAO update()");
+			e.printStackTrace();
+		} finally {
+			con.closeConnection();
+		}
+		
+		return actualizado;
 	}
 
 	@Override

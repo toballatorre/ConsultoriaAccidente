@@ -41,6 +41,15 @@ public class CapacitacionDTO {
 		this.idProfesionalPK = idProfesionalPK;
 	}
 
+	
+	public CapacitacionDTO(int idCapacitacion, String tema, String objetivos, String contenidos, String recursos) {
+		this.idCapacitacion = idCapacitacion;
+		this.tema = tema;
+		this.objetivos = objetivos;
+		this.contenidos = contenidos;
+		this.recursos = recursos;
+	}
+
 	/* GET AND SET*/
 
 	public int getIdCapacitacion() {

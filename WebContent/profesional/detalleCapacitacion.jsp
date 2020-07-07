@@ -18,40 +18,36 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Revisar Actividad Mejora</h1>
 	<jsp:include page="../MenuProfesional.jsp" />
-	
-	<!--  idcapacitacion, cliente_idcliente, tema, objetivos, contenidos, recursos, fecha, idusuariopro -->
-	<main>
-	<section class="contenido">
-		<table>
-			<tr>
-				<td>Tema:</td>
-				<td> <c:out value="${cap.getTema()}"/> </td>
-				<td> <c:out value="${cap.getFecha()}"/> </td>
-			</tr>
-			<tr>
-				<td>Objetivos</td>
-				<td colspan="2"> <c:out value="${cap.getObjetivos()}"/> </td>
-			</tr>
-			<tr>
-				<td>Contenidos</td>
-				<td colspan="2"> <c:out value="${cap.getContenidos()}"/> </td>
-			</tr>
-			<tr>
-				<td>Recursos</td>
-				<td colspan="2"> <c:out value="${cap.getRecursos()}"/> </td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<a href="ActualizarCapacitacion?id=${cap.getIdCapacitacion()}">Editar</a>
-					<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}">Eliminar</a>
-				</td>
-			</tr>
-		</table>
-	</section>
-	</main>
-	
+	<div class="contenido">
+		<h1>Vista Profesional</h1>
+		<h2>Revisar Actividad Mejora</h2>
+			<table>
+				<tr>
+					<td>Tema:</td>
+					<td> <c:out value="${cap.getTema()}"/> </td>
+					<td> <c:out value="${cap.getFecha()}"/> </td>
+				</tr>
+				<tr>
+					<td>Objetivos</td>
+					<td colspan="2"> <c:out value="${cap.getObjetivos()}"/> </td>
+				</tr>
+				<tr>
+					<td>Contenidos</td>
+					<td colspan="2"> <c:out value="${cap.getContenidos()}"/> </td>
+				</tr>
+				<tr>
+					<td>Recursos</td>
+					<td colspan="2"> <c:out value="${cap.getRecursos()}"/> </td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<a href="ActualizarCapacitacion?id=${cap.getIdCapacitacion()}"><i class="fas fa-edit"></i> Editar</a>
+						<a href="EliminarCapacitacion?id=${cap.getIdCapacitacion()}"><i class="fas fa-trash-alt"></i> Eliminar</a>
+					</td>
+				</tr>
+			</table>
+	</div>	
 	<jsp:include page="../footer.jsp" />
 	
 </body>

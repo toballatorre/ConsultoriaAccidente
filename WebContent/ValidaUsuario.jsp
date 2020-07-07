@@ -5,20 +5,20 @@
 
 		<c:when test="${empty sessionScope.user}"> 
 		
-		<form action="ValidarLogin" method="POST">
+		<form class="validarUsuario" action="ValidarLogin" method="POST">
 			<!--<p>Login</p> -->
-			<input type="text" name="user" id="user" placeholder="Usuario" required>
-			<input type="password" name="pass" id="pass" placeholder="Clave" required>
-			<input type="hidden" name="parametro" value="sesion">
-			<input type="submit" value="Login">
+			<input class="input" type="text" name="user" id="user" placeholder="Usuario" required>
+			<input class="input" type="password" name="pass" id="pass" placeholder="Clave" required>
+			<input class="input" type="hidden" name="parametro" value="sesion">
+			<input class="input" type="submit" value="Login">
 		</form>
 	</c:when>
 
 	<c:otherwise>
 		<!--si detecta usuario, muestra bienvenida-->
-		<p>Bienvenido ${sessionScope.user}</p>
+		<p> <strong> Bienvenido ${sessionScope.user}</strong></p>
 		<form action="${pageContext.request.contextPath}/LogOut" method="get">
-			<input type="submit" value="Logout">
+			<input class="input" type="submit" value="Logout">
 		</form>
 
 	</c:otherwise>

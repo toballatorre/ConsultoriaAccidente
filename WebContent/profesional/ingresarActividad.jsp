@@ -21,57 +21,58 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Profesional</h1>
 	<jsp:include page="../MenuProfesional.jsp" />
 	
-	<main>
-		<form class="contenido" action="${pageContext.request.contextPath}/IngresarActividad" method="post">
-			<table>
-				<tr>
-					<td> <label for="titulo">Titulo</label> </td>
-					<td> <input type="text" id="titulo" name="titulo"> </td>
-					<td> <label for="fecha" >Fecha de Plazo</label> </td>
-					<td> <input type="text" id="fecha" name="fecha" readonly> </td>
-				</tr>
-				<tr><td> Status </td>
-					<td>
-						<label for="realizado">Realizado</label>
-						<input type="radio" name="status" id="realizado" value="Realizado">
-					</td>
-					<td>
-						<label for="pendiente">Pendiente</label>
-						<input type="radio" name="status" id="pendiente" value="Pendiente" checked>					
-					</td>
-					<td>
-						<p>Cliente</p>
-						<select name="cliente">
-							<c:forEach items="${listaClientes}" var="cliente">
-								<option value="${cliente.getIdCliente()}" > <c:out value="${cliente.getNombreEmpresa()}"/></option>						
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">Detalle</td>					
-				</tr>
-				<tr> 
-					<td colspan="4"> <textarea name="detalle" id="detalle"></textarea> </td> 
-				</tr>
-				<tr>
-
-					<td colspan="4">Comentarios</td>					
-				</tr>
-				<tr> 
-					<td colspan="4"> <textarea name="comentarios" id="comentarios"></textarea> </td> 
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Ingresar"></td>
-					
-					<td colspan= "2"><input type="reset" value="Limpiar Campos"></td>
-				</tr>
-			</table>
-		</form>
-	</main>
+	<div class="contenido">
+		<h1>Vista Profesional</h1>
+		<h2>Ingresar Actividad Mejora</h2>
+			<form action="${pageContext.request.contextPath}/IngresarActividad" method="post">
+				<table>
+					<tr>
+						<td> <label for="titulo">Titulo</label> </td>
+						<td> <input type="text" id="titulo" name="titulo"> </td>
+						<td> <label for="fecha" >Fecha de Plazo</label> </td>
+						<td> <input type="text" id="fecha" name="fecha" readonly> </td>
+					</tr>
+					<tr><td> Status </td>
+						<td>
+							<label for="realizado">Realizado</label>
+							<input type="radio" name="status" id="realizado" value="Realizado">
+						</td>
+						<td>
+							<label for="pendiente">Pendiente</label>
+							<input type="radio" name="status" id="pendiente" value="Pendiente" checked>					
+						</td>
+						<td>
+							<p>Cliente</p>
+							<select name="cliente">
+								<c:forEach items="${listaClientes}" var="cliente">
+									<option value="${cliente.getIdCliente()}" > <c:out value="${cliente.getNombreEmpresa()}"/></option>						
+								</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">Detalle</td>					
+					</tr>
+					<tr> 
+						<td colspan="4"> <textarea name="detalle" id="detalle"></textarea> </td> 
+					</tr>
+					<tr>
+	
+						<td colspan="4">Comentarios</td>					
+					</tr>
+					<tr> 
+						<td colspan="4"> <textarea name="comentarios" id="comentarios"></textarea> </td> 
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Ingresar"></td>
+						
+						<td colspan= "2"><input type="reset" value="Limpiar Campos"></td>
+					</tr>
+				</table>
+			</form>
+	</div>
 	
 	<jsp:include page="../footer.jsp" />
 	<!-- SCRIPT -->

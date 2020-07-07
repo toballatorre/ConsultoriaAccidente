@@ -27,11 +27,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Revisar Actividad Mejora</h1>
 	<jsp:include page="../MenuProfesional.jsp" />
-	
-	<!--  idcapacitacion, cliente_idcliente, tema, objetivos, contenidos, recursos, fecha, idusuariopro -->
-	<main>
+	<div class="contenido">
+		<h1>Vista Profesional</h1>
+		<h2>Editar Capacitación</h2>
 	<form action="${pageContext.request.contextPath}/ActualizarCapacitacion" method="post" class="contenido">
 		<table>
 			<tr>
@@ -59,7 +58,7 @@
 			</tr>
 		</table>
 	</form>
-	</main>
+	</div>
 	
 	<jsp:include page="../footer.jsp" />
 	<!-- SCRIPT -->

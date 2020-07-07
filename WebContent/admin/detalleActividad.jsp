@@ -18,11 +18,10 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
-	<h1>Vista Administrador</h1>
 	<jsp:include page="../MenuAdmin.jsp" />
-	
-	<main>
-		<section class="contenido">
+	<div class="contenido">
+		<h1>Vista Administrador</h1>
+		<h2>Actividades</h2>
 			<table>
 				<tr>
 					<td>Titulo</td>
@@ -39,11 +38,11 @@
 					<td colspan="3"> <c:out value="${actividad.getComentario()}"></c:out> </td>
 				</tr>
 				<tr>
-					<td colspan="4"> <a href="VisualizarActividades">Volver</a> </td>
+					<td colspan="4"> <a href="VisualizarActividades"><i class="fas fa-undo-alt"></i> Volver</a> </td>
 				</tr>
 			</table>
-		</section>
-	</main>
+		</div>
+	
 	
 	<jsp:include page="../footer.jsp" />
 </body>

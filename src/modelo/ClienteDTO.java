@@ -22,6 +22,7 @@ public class ClienteDTO {
 		this.idUsuario = idUsuario;
 	}
 
+	/*SIN id*/
 	public ClienteDTO(String nombreEmpresa, String rutEmpresa, int idUsuario) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;

@@ -92,6 +92,10 @@ header .areaLogin {
 }
 .contenido table{
 	margin:auto;
+	border-collapse: collapse;
+}
+.contenido table,.contenido th,.contenido td {
+  border: 1px solid gray;
 }
 
 footer {

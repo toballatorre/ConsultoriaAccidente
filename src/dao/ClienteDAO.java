@@ -3,6 +3,7 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import conectar.Conexion;
@@ -10,9 +11,12 @@ import idao.IObjectDao;
 import modelo.ClienteDTO;
 
 public class ClienteDAO implements IObjectDao<ClienteDTO> {
-	private static final String SQL_READ = "SELECT * FROM cliente WHERE IDCLIENTE = ?";
-	private static final String SQL_UPDATE = "UPDATE cliente SET NOMBREEMPRESA = ?, RUTEMPRESA = ? ,USUARIO_IDUSUARIO = ? WHERE IDCLIENTE = ?";
-	
+
+  private static final String SQL_UPDATE = "UPDATE cliente SET NOMBREEMPRESA = ?, RUTEMPRESA = ? ,USUARIO_IDUSUARIO = ? WHERE IDCLIENTE = ?";
+	private static final String SQL_READBYCLIENTE = "SELECT * FROM cliente WHERE IDCLIENTE = ?";
+  private static final String SQL_READBYUSUARIO = "SELECT * FROM cliente WHERE USUARIO_IDUSUARIO = ?";
+  private static final String SQL_READALL = "SELECT * FROM cliente";
+  
 	private static final Conexion con = Conexion.connect();
 
 	@Override
@@ -66,7 +70,7 @@ public class ClienteDAO implements IObjectDao<ClienteDTO> {
 		ResultSet res;
 		
 		try {
-			ps = con.getConection().prepareStatement(SQL_READ);
+			ps = con.getConection().prepareStatement(SQL_READBYUSUARIO);
 			ps.setInt(1, (int) key);
 			
 			res = ps.executeQuery();
@@ -86,8 +90,48 @@ public class ClienteDAO implements IObjectDao<ClienteDTO> {
 
 	@Override
 	public List<ClienteDTO> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<ClienteDTO> lista = new ArrayList<ClienteDTO>();
+		
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+			ps = con.getConection().prepareStatement(SQL_READALL);
+			res = ps.executeQuery();
+			
+			while(res.next())
+				lista.add(new ClienteDTO(res.getInt("IDCLIENTE"), res.getString("NOMBREEMPRESA"), res.getString("RUTEMPRESA"), res.getInt("USUARIO_IDUSUARIO")));
+			
+		} catch (SQLException e) {
+			System.out.println("Error: ClienteDAO readAll");
+			e.printStackTrace();
+		}
+		
+		return lista;
 	}
-
+  
+  public ClienteDTO readCliente(Object key) {
+		ClienteDTO i = null;
+		
+		PreparedStatement ps;
+		ResultSet res;
+		
+		try {
+			ps = con.getConection().prepareStatement(SQL_READBYCLIENTE);
+			ps.setInt(1, (int) key);
+			
+			res = ps.executeQuery();
+			
+			while(res.next()) {
+				i = new ClienteDTO(res.getInt("IDCLIENTE"), res.getString("NOMBREEMPRESA"), res.getString("RUTEMPRESA"), res.getInt("USUARIO_IDUSUARIO"));
+			}
+		} catch (SQLException e) {
+			System.out.println("Error: ClienteDAO read()");
+			e.printStackTrace();
+		}finally {
+			con.closeConnection();
+		}		
+		return i;
+	
+	}
 }

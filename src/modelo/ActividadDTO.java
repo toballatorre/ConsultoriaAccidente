@@ -39,6 +39,15 @@ public class ActividadDTO {
 		this.comentario = comentario;
 		this.idClientePk = idClientePk;
 	}
+	
+	public ActividadDTO(int idActividad, String titulo, String descripcion, String status,
+			String comentario) {
+		this.idActividad = idActividad;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.status = status;
+		this.comentario = comentario;
+	}
 
 	// GET N' SET
 	public int getIdActividad() {
